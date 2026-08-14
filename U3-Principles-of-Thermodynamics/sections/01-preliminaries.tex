@@ -1,0 +1,63 @@
+\section{Thermodynamic preliminaries}
+    
+    Here we briefly define systems and surroundings, state and path functions, and the common variables used to characterise a simple compressible system. These preliminaries also set the sign conventions and notation (differentials versus inexact differentials) used in later derivations.
+    
+    \subsection{Extensive and intensive properties}
+	    Extensive properties scale with the size (amount of matter) of the system; intensive properties do not. Examples: volume $V$, internal energy $U$, entropy $S$ and mass $m$ are extensive (if you double the system, these double). Temperature $T$, pressure $P$ and density $\rho$ are intensive (they are the same for two identical subsystems in equilibrium).
+	    
+	    For an extensive property, as per the principle of mathematical scaling, we have
+	    \begin{align*}
+	    	X(\lambda\text{ system})&=\lambda X(\text{system}),\qq{$\lambda>0$}
+	    \end{align*}
+	    If $x$ is intensive and $X$ is extensive, then $x=\dfrac{X}{N}$ (per-particle or per-mole quantity) is intensive.
+	    
+	\subsection{Thermodynamic variables}
+		Thermodynamic variables (state variables) like $P$, $V$, $T$, $n$ (or $N$) and chemical potential $\mu$ specify the macroscopic state of a system.
+		
+		Some combinations define derived state functions: internal energy $U(S,V,N)$, enthalpy $H(S,P,N)=U+PV$, Helmholtz free energy $F(T,V,N)=U-TS$, and Gibbs free energy $G(T,P,N)=U-TS+PV$. Each potential is convenient for different experimental constraints.
+		
+		Differentials of state functions are exact -- for example, we write
+		\begin{align*}
+			\dd{U}&=T\dd{S}-P\dd{v}+\mu\dd{N}
+		\end{align*}
+		for a simple compressible system (fundamental thermodynamic relation).
+		
+	\subsection{Thermodynamic equilibrium}
+		Thermodynamic equilibrium means no net macroscopic change occurs with time: the system is mechanically, thermally and chemically balanced with its surroundings. Mechanical equilibrium $\implies$ equal pressures; thermal equilibrium $\implies$ equal temperatures; chemical equilibrium $\implies$ equal chemical potentials for exchanging species. At equilibrium (isolated system) entropy is maximum subject to constraints; for a system at fixed $T$ and $P$, appropriate free energies are minimised.
+		
+	\subsection{$P$-$V$ indicator diagram}
+		A $P$-$V$ diagram (indicator diagram) plots pressure vs volume for a thermodynamic process. Paths on this diagram represent processes; closed loops represent cycles. The algebraic area enclosed by a closed path equals the net work done by the system per cycle (conventionally positive if the system does work on the surroundings during an anticlockwise loop).
+		
+	\subsection{Work done in terms of $P$ and $V$}
+		Work associated with quasi-static (infinitesimally slow) volume change is
+		\begin{align*}
+			\dd{W}&=P\dd{V}
+		\end{align*}
+		where $P$ is the internal (system) pressure if the process is reversible. More generally, for irreversible expansion against a constant external pressure $P_\text{ext}$
+		\begin{align*}
+			\dd{W}&=P_\text{ext}\dd{V}
+		\end{align*}
+		Total work between states \#1 and \#2 is
+		\begin{align*}
+			W&=\int\limits_{V_1}^{V_2}{P\dd{V}}
+		\end{align*}
+		
+		As per the sign convention:
+		\begin{itemize}
+			\item $W>0$ $\implies$ work done \emph{by} the system
+			\item $W<0$ $\implies$ work done \emph{on} the system
+		\end{itemize}
+		
+	\subsection{Zeroth law of thermodynamics}
+		\emph{The zeroth law formalises the concept of temperature.}
+		
+		It states: if system $A$ is in thermal equilibrium with $B$, and $B$ is in thermal equilibrium with $C$, then $A$ and $C$ are in thermal equilibrium. 
+		
+		This transitive property allows the construction of temperature scales and thermometers: a single observable (the thermometer reading) can act as a parameter that is equal for all systems in mutual thermal equilibrium.
+		
+	\subsection{Concept of temperature}
+		Temperature is an intensive variable that quantifies the direction of heat flow: heat flows spontaneously from higher to lower temperature. In thermodynamics the absolute (Kelvin) temperature has an intrinsic definition via entropy $S$ and internal energy $U$ as follows:
+		\begin{align*}
+			\dfrac{1}{T}&=\qty(\pdv{S}{U})_{V,N}
+		\end{align*}
+		Temperature also appears in the ideal gas law $PV=nRT$ and in the statistical definition $T^{-1}=\pdv{S}{U}$, linking thermodynamic and microscopic descriptions.

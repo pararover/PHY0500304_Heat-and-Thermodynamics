@@ -1,0 +1,47 @@
+\section{Heat \& work}
+
+	\subsection{State function}
+		A state function depends only on the current thermodynamic state and not on the history of the system (e.g. $U$, $S$, $T$, $P$, $V$). In contrast, heat $Q$ and work $W$ are path functions -- they depend on how the state change is carried out.
+		
+		Notationally we use $\dd{U}$ for exact differentials and $\delta{Q}$, $\delta{W}$ for inexact differentials to emphasise this distinction.
+		
+		Heat and work are mutually convertible forms of energy. The first law quantifies conversion: when heat $Q$ flows into a system part of it can increase internal energy, and part can be converted to work. The mechanical equivalent of heat (Joule's constant) historically established their equivalence; modern units use joules for both. In practice the efficiency of conversion is limited by the second law.
+		\begin{itemize}
+			\item A useful consequence: the integral of $\oint{\dd{U}}=0$ around a closed cycle, but $\oint{\delta{Q}}\neq 0$ and $\oint{\delta{W}}\neq 0$ (their difference over a cycle equals zero by the first law).
+		\end{itemize}
+		
+	\subsection{Conversion between heat and work}
+		Heat and work are mutually convertible forms of energy. The first law quantifies conversion: when heat $Q$ flows into a system part of it can increase internal energy, and part can be converted to work. The mechanical equivalent of heat (Joule's constant) historically established their equivalence; modern units use joules for both. In practice the efficiency of conversion is limited by the second law.
+		
+	\subsection{Work done during isothermal and adiabatic processes}
+		\begin{itemize}
+			\item \textbf{Isothermal process (ideal gas, reversible):}\\
+			$T$ constant, $U$ depends only on $T$ so $\Delta U=0$. From first law, we have $Q=W$. Therefore, the work done by the gas between volumes $V_1$ and $V_2$ is
+			\begin{align*}
+				W_\text{isothermal}&=\int_{V_1}^{V_2}{P\dd{V}} \\
+				&=\int_{V_1}^{V_2}{\qty(\dfrac{nRT}{V})\dd{V}} \\
+				&=nRT\int_{V_1}^{V_2}{\dfrac{\dd{V}}{V}} \\
+				\implies W_\text{isothermal}&=nRT\ln{\qty(\dfrac{V_2}{V_1})}
+			\end{align*}
+			
+			\item \textbf{Adiabatic (reversible) process (ideal gas):}\\
+			Here, $\delta{Q}=0$. For an ideal gas the reversible adiabatic relation is
+			\begin{align*}
+				PV^\gamma=\text{constant},\qq{where $\gamma\equiv\dfrac{C_P}{C_V}$}
+			\end{align*}
+			Then the work done between states 1 and 2 is
+			\begin{align*}
+				W_\text{adiabatic}=\dfrac{P_1V_1-P_2V_2}{\gamma-1}=nC_V(T_2-T_1)
+			\end{align*}
+		\end{itemize}
+		
+	\subsection{Heat engines}
+		A heat engine operates in a cycle: it absorbs heat $Q_\text{in}$ from a hot reservoir, does work $W$, and expels heat $Q_\text{out}$ to a cold reservoir. Total work done per cycle is
+		\begin{align*}
+			W&=Q_\text{in}-Q_\text{out}
+		\end{align*}
+		The thermal efficiency $\eta$ is defined as
+		\begin{align*}
+			\eta&\equiv\dfrac{W}{Q_\text{in}}=1-\dfrac{Q_\text{out}}{Q_\text{in}}
+		\end{align*}
+		The second law of thermodynamics imposes an upper bound on $\eta$ -- no engine operating between two reservoirs can surpass the Carnot efficiency.

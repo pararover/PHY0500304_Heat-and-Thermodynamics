@@ -1,0 +1,50 @@
+\section{First law of thermodynamics}
+
+	The first law is the statement of conservation of energy applied to thermodynamic systems: energy can be transferred as heat or work and internal energy changes accordingly. For a closed system (fixed mass)
+	\begin{align*}
+		\Delta U&=Q-W
+	\end{align*}
+	where $Q$ is heat supplied to the system and $W$ is work done by the system. In differential form
+	\begin{align*}
+		\dd{U}&=\delta{Q}-\delta{W}
+	\end{align*}
+	\begin{itemize}
+		\item For reversible PV-work, we have $\delta{W}=P\dd{V}$. Hence
+		\begin{align*}
+			\delta{Q}&=\dd{U}+P\dd{V}
+		\end{align*}
+		
+		\item $Q$ and $W$ are path-dependent (inexact differentials, often written as $\delta{Q}$, $\delta{W}$).
+		
+		\item $U$ is a state function (exact differential, written as $\dd{U}$).
+		
+		\item First law does not constrain the direction of processes.
+	\end{itemize}
+	
+	\subsection{Applications of the first law of thermodynamics}
+	
+		\subsubsection{General relation between $C_P$ and $C_V$}
+			Specific heats are defined for closed systems of fixed composition:
+			\begin{align*}
+				C_V\equiv\qty(\pdv{U}{T})_V\qq{and}C_P\equiv\qty(\pdv{H}{T})_P
+			\end{align*}
+			where enthalpy $H\equiv U+PV$. For a general substance the difference $C_P-C_V$ can be written in terms of measurable derivatives. One convenient form is:
+			\begin{align*}
+				C_P-C_V&=-T\dfrac{\qty(\pdv*{P}{T})_V^2}{\qty(\pdv*{P}{V})_T}
+			\end{align*}
+			This identity is derived from total differentials and Maxwell relations; it is valid for any simple compressible substance.
+			
+			\begin{itemize}
+				\item For an ideal gas, we have
+				\begin{align*}
+					P&=\dfrac{RT}{V_m} \\
+					\implies \qty(\pdv{P}{T})_V=\dfrac{R}{V_m}&\qq{and}\qty(\pdv{P}{V})_T=-\dfrac{RT}{V_m^2}
+				\end{align*}
+				
+				Substituting the above gives us
+				\begin{align*}
+					C_P-C_V&=-T\dfrac{R^2/V_m^2}{\qty(-RT/V_m^2)} \\
+					\implies\Aboxed{C_P-C_V&=R}
+				\end{align*}
+				which is the \textit{Mayer's relation}.
+			\end{itemize}

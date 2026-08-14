@@ -1,0 +1,73 @@
+\section{Second law of thermodynamics}
+
+	The second law introduces a direction to thermodynamic processes and establishes the concept of entropy as a measure of irreversibility. It can be stated in several equivalent ways (Clausius, Kelvin-Planck) and implies that perpetual motion machines of the second kind are impossible. The law also provides the basis for defining absolute temperature scales via reversible cycles.
+	
+	\subsection{Kelvin-Planck and Clausius statements}
+		Two standard formulations:
+		\begin{enumerate}
+			\item \textbf{Kelvin-Planck statement:} It is impossible to construct a device that operates in a cycle and converts heat completely into work while exchanging heat with a single reservoir. In other words, no cyclic engine can have $Q_\text{out}=0$ for nonzero $Q_\text{in}$.
+			
+			\item \textbf{Clausius statement:} It is impossible to construct a device that operates in a cycle and transfers heat from a colder body to a hotter body without work input. That is, heat cannot spontaneously flow from cold to hot.
+		\end{enumerate}
+		These two statements are equivalent: violation of one leads to a violation of the other.
+		
+	\subsection{Carnot's cycle}
+		Carnot's cycle is an ideal reversible cycle consisting of two isothermal and two adiabatic processes, operating between a hot reservoir at temperature $T_h$ and a cold reservoir at $T_c$. The four reversible steps are:
+		\begin{enumerate}
+			\item Reversible isothermal expansion at $T_h$ absorbing heat $Q_h$.
+			\item Reversible adiabatic expansion lowering temperature from $T_h$ to $T_c$.
+			\item Reversible isothermal compression at $T_c$ rejecting heat $Q_c$.
+			\item Reversible adiabatic compression raising temperature from $T_c$ to $T_h$.
+		\end{enumerate}
+		For a reversible Carnot engine the entropy changes during the isothermal steps are given as $\Delta{S}=\dfrac{Q}{T}$ and since the cycle is reversible the net entropy change is zero, we have
+		\begin{align*}
+			\dfrac{Q_h}{T_h}-\dfrac{Q_c}{T_c}&=0 \\
+			\implies\dfrac{Q_c}{Q_h}&=\dfrac{T_c}{T_h}
+		\end{align*}
+		
+	\subsection{Carnot engine \& efficiency}
+		Using the entropy relation above and the work relation $W=Q_h-Q_c$, the (maximum) efficiency of a reversible Carnot engine is
+		\begin{align*}
+			\eta_\text{Carnot}&=1-\dfrac{T_c}{T_h}
+		\end{align*}
+		This depends only on the reservoir temperatures (in Kelvin). No real engine operating between the same two reservoirs can have greater efficiency than a Carnot engine.
+		
+		For small temperature differences, we have
+		\begin{align*}
+			\eta\approx\eta_\text{Carnot}
+		\end{align*}
+		
+	\subsection{Refrigerator \& coefficient of performance}
+		A refrigerator or heat pump runs the Carnot cycle in reverse: work $W$ is supplied to transfer heat $Q_c$ from the cold reservoir to the hot reservoir. The coefficient of performance ($\alpha$) for a refrigerator is defined as
+		\begin{align*}
+			\alpha&\equiv\dfrac{Q_c}{W}
+		\end{align*}
+		Using the relations $W=Q_h-Q_c$ and $\dfrac{Q_c}{Q_h}=\dfrac{T_c}{T_h}$, we obtain
+		\begin{align*}
+			\alpha&=\dfrac{Q_c}{Q_h-Q_c} \\
+			&=\dfrac{Q_c}{Q_c\qty(\sfrac{Q_h}{Q_c}-1)} \\
+			&=\dfrac{1}{\sfrac{T_h}{T_c}-1} \\
+			\implies\alpha&=\dfrac{T_c}{T_h-T_c}
+		\end{align*}
+		
+	\subsection{Carnot's theorem}
+		Carnot's theorem states two important results:
+		\begin{enumerate}
+			\item No engine operating between two heat reservoirs can be more efficient than a reversible (Carnot) engine operating between the same reservoirs.
+			
+			\item All reversible engines operating between the same two reservoirs have the same efficiency (independent of working substance).
+		\end{enumerate}
+		
+		\textit{Consequences}: the Carnot efficiency provides an absolute upper bound on thermal efficiency and motivates the definition of an absolute temperature scale tied to reversible heat exchange.
+		
+	\subsection{Applications of second law of thermodynamics}
+		The second law has wide applications:
+		\begin{itemize}
+			\item \textit{Entropy as a criterion of spontaneity}: for isolated systems, spontaneous processes increase entropy; equilibrium corresponds to maximum entropy.
+			
+			\item \textit{Limits on engine and refrigeration performance}: design targets must respect Carnot limits.
+			
+			\item \textit{Direction of natural processes}: heat flow, diffusion and chemical reactions' spontaneity relate to entropy and free energies.
+			
+			\item \textit{Engineering cycles and optimisation}: second-law analysis identifies irreversibilities and where efficiency improvements are possible.
+		\end{itemize}
