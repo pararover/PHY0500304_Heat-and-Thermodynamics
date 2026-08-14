@@ -1,0 +1,19 @@
+\section{Law of corresponding states}
+	The law of corresponding states states that all real gases, when compared at corresponding reduced conditions, exhibit similar behaviour. This principle implies that gas properties can be made universal by scaling them using critical constants. As a result, gases appear to obey a common reduced equation of state. This law plays a crucial role in studying complex gases and supercritical fluids.
+	
+	The dimensionless reduced variables are defined as:
+	\begin{align*}
+		P_r=\dfrac{P}{P_c},\qq{}V_r=\dfrac{V}{V_c}\qq{and}T_r=\dfrac{T}{T_c} \\
+		\implies P=P_rP_c,\qq{}V=V_rV_c\qq{and}T=T_rT_c
+	\end{align*}
+	
+	Then from the equation of state of a van der Waals' gas we obtain
+	\begin{align*}
+		\qty(P+\dfrac{a}{V^2})\qty(V-b)&=RT \\
+		\implies\qty(P_rP_c+\dfrac{a}{V_r^2V_c^2})\qty(V_rV_c-b)&=RT_rT_c \\
+		\implies\qty(P_r\dfrac{a}{27b^2}+\dfrac{a}{9b^2V_r^2})\qty(3bV_r-b)&=\cancel{R}T_r\dfrac{8a}{27\cancel{R}b} \\
+		\implies\dfrac{a\cancel{b}}{9b^{\cancel{2}}}\qty(\dfrac{P_r}{3}+\dfrac{1}{V_r^2})\qty(3V_r-1)&=\dfrac{a}{27b}8T_r \\
+		\implies\cancel{\dfrac{a}{27b}}\qty(P_r+\dfrac{3}{V_r^2})\qty(3V_r-1)&=\cancel{\dfrac{a}{27b}}8T_r \\
+		\implies\Aboxed{\qty(P_r+\dfrac{3}{V_r^2})\qty(3V_r-1)&=8T_r}
+	\end{align*}
+	Thus gases with identical $P_r$, $V_r$ and $T_r$ behave similarly -- thereby constituting the basis of corresponding states.

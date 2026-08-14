@@ -1,0 +1,30 @@
+\section{Van der Waal's equation of state for real gases}
+	The van der Waals' equation introduces corrections to the ideal gas law to account for intermolecular attractions and finite molecular size. It is one of the earliest and most successful equations of state for real gases, providing a qualitative description of gas-liquid transitions. The equation refines our understanding of gas behaviour under non-ideal conditions and forms a foundation for advanced thermodynamic analysis.
+	
+	The van der Waals' equation is:
+	\begin{align*}
+		\qty(P+\dfrac{a}{V_m^2})\qty(V_m-b)&=RT
+	\end{align*}
+	where $a$ accounts for attractive forces, $b$ represents the effective molecular volume (excluded volume) and $V_m$ is the molar volume of the gas.
+	
+	\subsection{Values of critical constants}
+		The van der Waals' equation predicts explicit expressions for the critical constants. These values result from applying the critical point conditions to the equation of state. The critical constants allow a direct connection between the empirical critical parameters and the molecular constants $a$ and $b$. This connection demonstrates the physical significance of the parameters.
+		
+		At the critical temperature $T_c$, we have
+		\begin{align*}
+			\qty(\pdv{P}{V_m})_{T_c}=0\qq{and}\qty(\pdv[2]{P}{V_m})_{T_c}=0
+		\end{align*}
+		
+		Applying the above conditions on the van der Waal's equation, we can obtain the critical pressure $P_c$, critical volume $V_c$ and critical temperature $T_c$ to be
+		\begin{align*}
+			P_c=\dfrac{a}{27b^2},\qq{ }V_c=3b\qq{and}T_c=\dfrac{8a}{27Rb}
+		\end{align*}
+		
+		Then we get the corresponding compressibility factor to be
+		\begin{align*}
+			Z_c&=\dfrac{P_cV_c}{RT_c} \\
+			&=\dfrac{\qty(\sfrac{a}{27b^2})\qty(3b)}{R\qty(\sfrac{8a}{27Rb})} \\
+			&=\dfrac{\cancel{a}}{\cancel{27}\cancel{b^2}}\cdot 3\cancel{b}\cdot\dfrac{\cancel{27}\cancel{R}\cancel{b}}{8\cancel{a}\cancel{R}} \\
+			\implies\dfrac{P_cV_c}{RT_c}&=\dfrac{3}{8}
+		\end{align*}
+		which is a universal constant for all van der Waals gases.
