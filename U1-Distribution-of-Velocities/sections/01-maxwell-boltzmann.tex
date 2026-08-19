@@ -1,12 +1,78 @@
 \section{Maxwell-Boltzmann distribution law}
+	The Maxwell-Boltzmann distribution is a result of the kinetic theory of gases, which provides a simplified explanation of many fundamental gaseous properties, including pressure and diffusion. This distribution applies fundamentally to particle velocities in three dimensions, but turns out to depend only on the speed (the magnitude of the velocity) of the particles. A particle speed probability distribution indicates which speeds are more likely: a randomly chosen particle will have a speed selected randomly from the distribution, and is more likely to be within one range of speeds than another.
+	
+	The kinetic theory of gases applies to the classical ideal gas, which is an idealization of real gases. In real gases, there are various effects (e.g., van der Waals interactions, vortical flow, relativistic speed limits, and quantum exchange interactions) that can make their speed distribution different from the Maxwell–Boltzmann form. However, rarefied gases at ordinary temperatures behave very nearly like an ideal gas and the Maxwell speed distribution is an excellent approximation for such gases. This is also true for ideal plasmas, which are ionized gases of sufficiently low density.
 	
 	\subsection{Postulates of kinetic theory of gases}
+		\begin{enumerate}
+			\item Every mole of a gas contains about $\num{6.023e-23}$ molecules.
+			\item The gas molecules may be regarded as point masses.
+			\item The gas molecules are in a state of continuous random motion.
+			\item In the absence of an external force field, the molecules are distributed uniformly in the container, i.e. an ideal gas behaves as an isotropic medium.
+			\item The molecules of a gas experience force only during collisions.
+			\item The molecules of a gas behave as rigid, perfectly elastic hard spheres.
+			\item The duration of collisions is negligible compared to the time interval between collisions.
+			\item There is a spread of molecular speeds from zero to infinity.
+			\item The gravitational potential energy has negligible effect on the motion of the gas molecules.
+		\end{enumerate}
 	
 	\subsection{Fundamental assumptions}
+		In the derivation of the Maxwell-Boltzmann distribution, we make the following basic assumptions:
+		\begin{enumerate}
+			\item In the equilibrium state, the molecules have complete randomness of direction and velocity.
+			
+			\item There is no mass motion or convection current in the body of the gas.
+			
+			\item The probability of a molecule having an $x$-velocity component at any point of time is independent of its $y$- and $z$-velocity components, and so on.
+			
+			\item The probability that a molecule selected at random has velocity component in a given range is a function only of the magnitude of the velocity component and the width of the interval.
+			
+			\item The gas molecules have no rotational or vibrational energies.
+		\end{enumerate}
 	
 	\subsection{Velocity space}
+		Consider a gas of $N$ molecules enclosed in a vessel, of arbitrary shape, and moving randomly. The velocity vectors are all randomly oriented in all possible directions.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.45\textwidth]{figures/fig_random-vel.png}
+		\end{figure}
+		
+		Now we transport each vector parallel to itself to a common origin.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.35\textwidth]{figures/fig_random-vel-transp.png}
+		\end{figure}
+		
+		If we now fix the velocity axes $v_x$, $v_y$ and $v_z$ with respect to a common origin $O$ (that corresponds to particles at rest), every molecular velocity can be represented in this space, which is known as the \emph{velocity space}.
 	
 	\subsection{Derivation of Maxwell-Boltzmann distribution law}
+		Let us now consider an infinitessimal volume element $\dd{\va*{v}}$ in this velocity space. The number of velocity vectors that terminate inside $\dd{\va*{v}}$ gives us the average number of molecules whose velocities lie between $\va*{v}$ and $\va*{v}+\dd{\va*{v}}$.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.35\textwidth]{figures/fig_inf-vel-elem.png}
+		\end{figure}
+		
+		We have, for any velocity $\va*{v}$, the corresponding speed to be
+		\begin{align}
+			v^2&=v_x^2+v_y^2+v_z^2 \label{eqn:molec-speed-01}
+		\end{align}
+		Let $\dd{N_{v_x}}$ be the number of molecules having velocity components in the range $v_x$ and $v_x+\dd{v_x}$. Then from assumption \#4, we have
+		\begin{align}
+			\dfrac{\dd{N_{v_x}}}{N}&=f(v_x)\dd{v_x} \nonumber\\
+			\text{or, }\dd{N_{v_x}}&=Nf(v_x)\dd{v_x} \label{eqn:dNvx-01}
+		\end{align}
+		In equation (\ref{eqn:dNvx-01}), $f(v_x)$ is an unknown function that we have to determine.
+		
+		Also, the probability of finding a molecule with $x$-velocity component in the range $v_x$ and $v_x+\dd{v_x}$ is
+		\begin{align}
+			p_x&=\dfrac{\dd{N_{v_x}}}{N}=f(v_x)\dd{v_x} \label{eqn:p_x}
+		\end{align}
+		
+		Likewise, from assumption \#3, we have
+		\begin{align}
+			p_y&=f(v_y)\dd{v_y} \label{eqn:p_y} \\
+			p_z&=f(v_y)\dd{v_z} \label{eqn:p_z}
+		\end{align}
 	
 		\subsubsection{Molecular distribution of speeds}
 	
