@@ -152,6 +152,40 @@
 			\includegraphics[width=0.65\textwidth]{figures/fig_max-vel-dens-distn.png}
 		\end{figure}
 	
+		\newpage
 		\subsubsection{Molecular distribution of speeds}
+			\setcounter{equation}{0}
+			Consider a spherical shell of radius $v$ and thickness $\dd{v}$ in the velocity space. Then all points within this shell correspond to molecules with speeds in the range $v$ and $v+\dd{v}$.
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=0.45\textwidth]{figures/fig_vel-sph-shell.png}
+			\end{figure}
+			In the spherical polar coordinates, the volume of an arbitrary volume element is
+			\begin{align}
+				\dd{v_x}\dd{v_y}\dd{v_z}&=v^2\sin{\theta}\dd{\theta}\dd{\phi}\dd{v} \label{eqn:v-space:vol-elem}
+			\end{align}
+			The number of molecules with speeds in the range $v$ and $v+\dd{v}$ is obtained by integrating $\rho$ over this shell as
+			\begin{align}
+				\dd{N_v}&=\dd[3]{N_{v_xv_yv_z}} \nonumber\\
+					&=\int\limits_{\theta=0}^{\pi}\int\limits_{\phi=0}^{2\pi}{NA^3e^{-Bv^2}v^2\sin{\theta}\dd{\theta}\dd{\phi}\dd{v}} \nonumber\\
+					&=NA^3e^{-Bv^2}v^2\dd{v}\int\limits_{0}^{\pi}{\sin{\theta}\dd{\theta}}\int\limits_{0}^{2\pi}{\dd{\phi}} \nonumber\\
+					&=NA^3e^{-Bv^2}v^2\dd{v}\qty[\cos{0}-\cos{\pi}]2\pi \nonumber\\
+					&=NA^3e^{-Bv^2}v^2\dd{v}\times 2\times 2\pi \nonumber\\
+				\implies\dd{N_v}&=4\pi NA^3v^2e^{-Bv^2}\dd{v} \nonumber \\
+				\implies\Aboxed{\dv{N_v}{v}&=4\pi NA^3v^2e^{-Bv^2}} \label{eqn:dNv-dv}
+			\end{align}
+			Equation (\ref{eqn:dNv-dv}) gives us the \emph{Maxwellian distribution function of molecular speeds}.
+			
+			\newpage
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=0.7\textwidth]{figures/fig_max-mol-speed-distn.png}
+			\end{figure}
+			In the plot of $\dv{N_v}{v}$ with respect to $v$, the area of a vertical shaded strip under the graph gives the number of molecules which have speeds between $v$ and $v+\dd{v}$. Hence, the total area under the entire curve gives us the total number of molecules $N$.
 	
 		\subsubsection{Determination of the constants}
+			\setcounter{equation}{0}
+			The total number of molecules $N$ can be obtained by integrating $\dd{N_v}$ over all speeds, i.e.
+			\begin{align}
+				N&=\int{\dd{N_v}}=4\pi NA^3\int\limits_{0}^{\infty}{v^2e^{-Bv^2}\dd{v}} \label{eqn:total-molec-N}
+			\end{align}
