@@ -73,6 +73,84 @@
 			p_y&=f(v_y)\dd{v_y} \label{eqn:p_y} \\
 			p_z&=f(v_y)\dd{v_z} \label{eqn:p_z}
 		\end{align}
+		
+		Then from the law of compound probabilities, the probability of finding a molecule having velocity components simultaneously in the ranges $[v_x,v_x+\dd{v_x}]$, $[v_y,v_y+\dd{v_y}]$ and $[v_z,v_z+\dd{v_z}]$ is
+		\begin{align}
+			\dfrac{\dd[3]{N_{v_xv_yv_z}}}{N}&=p_xp_yp_z=f(v_x)f(v_y)f(v_z)\dd{v_x}\dd{v_y}\dd{v_z} \label{eqn:dNv-N}
+		\end{align}
+		
+		Hence, the number density of velocity points is
+		\begin{align}
+			\rho&=\dfrac{\dd[3]{N_{v_xv_yv_z}}}{\dd{v_x}\dd{v_y}\dd{v_z}}=Nf(v_x)f(v_y)f(v_z) \label{eqn:rho-01}
+		\end{align}
+		
+		It follows from assumption \#1 that the velocity space has been assumed to be isotropic, and so this implies that $\rho$ is independent of the direction of $\va*{v}$ and only depends ton $v^2$, i.e
+		\begin{align}
+			\rho&\propto J(v^2) \nonumber\\
+			\implies f(v_x)f(v_y)f(v_z)&=J(v^2) \label{eqn:J-f}
+		\end{align}
+		where $J$ is some other function.
+		
+		For a fixed value of $v^2$, $J(v^2)$ is constant and so
+		\begin{align}
+			\dd{\qty[J(v^2)]}&=0 \nonumber\\
+			\implies\dd{\qty[f(v_x)f(v_y)f(v_z)]}&=0 \nonumber\\
+			\implies\pdv{f(v_x)}{v_x}\dd{v_x}f(v_y)f(v_z)+f(v_x)\pdv{f(v_y)}{v_y}\dd{v_y}f(v_z)+f(v_x)f(v_y)\pdv{f(v_z)}{v_z}\dd{v_z}&=0 \label{eqn:diff_f-vxvyvz}
+		\end{align}
+		
+		Dividing equation (\ref{eqn:diff_f-vxvyvz}) by $f(v_x)f(v_y)f(v_z)$, we obtain
+		\begin{align}
+			\dfrac{1}{f(v_x)}\pdv{f(v_x)}{v_x}\dd{v_x}+\dfrac{1}{f(v_y)}\pdv{f(v_y)}{v_y}\dd{v_y}+\dfrac{1}{f(v_z)}\pdv{f(v_z)}{v_z}\dd{v_z}&=0 \label{eqn:dd_f-vxvyvz}
+		\end{align}
+		Also, for a fixed value of $v^2$, we have
+		\begin{align}
+			\dd{\qty[v^2]}&=0 \nonumber\\
+			\implies\dd{\qty[v_x^2+v_y^2+v_z^2]}&=0 \nonumber\\
+			\implies v_x\dd{v_x}+v_y\dd{v_y}+v_z\dd{v_z}&=0 \label{eqn:v-dv}
+		\end{align}
+		
+		Suppose that $B$ is some unknown constant. Then multiplying equation (\ref{eqn:v-dv}) with $2B$ and adding to equation (\ref{eqn:dd_f-vxvyvz}) gives
+		\begin{align}
+			\qty[\dfrac{1}{f(v_x)}\pdv{f(v_x)}{v_x}+2Bv_x]\dd{v_x} +  \qty[\dfrac{1}{f(v_y)}\pdv{f(v_y)}{v_y}+2Bv_y]\dd{v_y} +  \qty[\dfrac{1}{f(v_z)}\pdv{f(v_z)}{v_z}+2Bv_z]\dd{v_z} &= 0 \label{eqn:combo-10-11}
+		\end{align}
+		
+		Even though $v$ is held constant, $v_x$, $v_y$, $v_z$ may individually change and yet satisfy equation (\ref{eqn:molec-speed-01}). In equation (\ref{eqn:combo-10-11}), the first term within brackets depends only on $v_x$, the second term on $v_y$ and the third term on $v_z$.
+		
+		Because $\dd{v_x}$, $\dd{v_y}$, $\dd{v_z}$ are arbitrary, the only way for equation (\ref{eqn:combo-10-11}) to hold good is if all three terms vanish identically.
+		
+		Therefore, for the $v_x$ term, we would have
+		\begin{align*}
+			\dfrac{1}{f(v_x)}\pdv{f(v_x)}{v_x}+2Bv_x&=0 \\
+			\implies\pdv{f(v_x)}{v_x}&=-2Bv_xf(v_x) \\
+			\implies\dfrac{\partial f(v_x)}{f(v_x)}&=-2Bv_x\partial v_x \\
+			\implies\int{\dfrac{\dd{f}}{f}}&=-2B\int{v_x\dd{v_x}} \\
+			\implies\ln{f(v_x)}&=-2B\dfrac{v_x^2}{2}+\ln{A}
+		\end{align*}
+		where $\ln{A}$ is the constant of integration. From the above we obtain
+		\begin{align}
+			\ln{f(v_x)}-\ln{A}&=-Bv_x^2 \nonumber\\
+			\implies\ln{\dfrac{f(v_x)}{A}}&=-Bv_x^2 \nonumber\\
+			\implies\dfrac{f(v_x)}{A}&=e^{-Bv_x^2} \nonumber\\
+			\implies f(v_x)&=Ae^{-Bv_x^2} \label{eqn:fv_x}
+		\end{align}
+		
+		Likewise, from the $v_y$ and $v_z$ terms, we obtain
+		\begin{align}
+			f(v_y)&=Ae^{-Bv_y^2} \label{eqn:fv_y}\\
+			f(v_z)&=Ae^{-Bv_z^2} \label{eqn:fv_z}
+		\end{align}
+		
+		Using equations (\ref{eqn:fv_x}), (\ref{eqn:fv_y}) and (\ref{eqn:fv_z}) in equation (\ref{eqn:rho-01}) gives us
+		\begin{align}
+			\rho&=N\qty(Ae^{-Bv_x^2})\qty(Ae^{-Bv_y^2})\qty(Ae^{-Bv_z^2}) \nonumber\\
+				&=NA^3e^{-B(v_x^2+v_y^2+v_z^2)} \nonumber\\
+			\implies\Aboxed{\rho(v)&=NA^3e^{-Bv^2}} \label{eqn:maxwell-vel-distn-01}
+		\end{align}
+		Equation (\ref{eqn:maxwell-vel-distn-01}) is known as \emph{Maxwell's velocity density distribution function}, where $\rho$ varies with molecular speeds $v$ as shown in the plot below:
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.65\textwidth]{figures/fig_max-vel-dens-distn.png}
+		\end{figure}
 	
 		\subsubsection{Molecular distribution of speeds}
 	
