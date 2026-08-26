@@ -189,3 +189,124 @@
 			\begin{align}
 				N&=\int{\dd{N_v}}=4\pi NA^3\int\limits_{0}^{\infty}{v^2e^{-Bv^2}\dd{v}} \label{eqn:total-molec-N}
 			\end{align}
+			
+			We now use the following standard integral:
+			\begin{align}
+				\int\limits_{0}^{\infty}{e^{-\alpha x^2}x^n\dd{x}}&=\dfrac{1}{2\alpha^{(n+1)/2}}\Gamma\qty(\dfrac{n+1}{2}) \label{eqn:std-integ}
+			\end{align}
+			where the gamma function is defined as
+			\begin{align*}
+				\Gamma(x)=\int\limits_{0}^{\infty}{t^{x-1}e^{-t}\dd{t}}
+			\end{align*}
+			
+			Some important values of $\Gamma(x)$ are given below:
+			\begin{table}[h!]
+				\centering
+				\begin{tabular}{cc}
+					\toprule[1.5pt]
+					{$\boldsymbol{x}$} & {$\boldsymbol{\Gamma(x)}$} \\
+					\midrule
+					{$1/2$} & {$\sqrt{\pi}$} \\
+					{$1$} & {$1$} \\
+					{$3/2$} & {$\sqrt{\pi}/2$} \\
+					{$2$} & {$1$} \\
+					\bottomrule[1.5pt]
+				\end{tabular}
+			\end{table}
+			
+			The gamma function also satisfies the recurrence relation: $\Gamma(n+1)=n\Gamma(n)$
+			
+			In equation (\ref{eqn:std-integ}), setting $x\to v$, $\alpha\to B$ and $n=2$ gives us
+			\begin{align}
+				\int\limits_{0}^{\infty}{e^{-Bv^2}v^2\dd{v}}&=\dfrac{1}{2B^{(2+1)/2}}\Gamma\qty(\dfrac{2+1}{2}) \nonumber\\
+					&=\dfrac{1}{2B^{3/2}}\Gamma\qty(\dfrac{3}{2}) \nonumber\\
+				\implies\int\limits_{0}^{\infty}{v^2e^{-Bv^2}\dd{v}}&=\dfrac{\sqrt{\pi}}{4B^{3/2}} \label{eqn:integ-in-N}
+			\end{align}
+			
+			Inserting equation (\ref{eqn:integ-in-N}) in equation (\ref{eqn:total-molec-N}), we get
+			\begin{align}
+				\cancel{N}&=\cancel{4}\pi \cancel{N}A^3\times\dfrac{\sqrt{\pi}}{\cancel{4}B^{3/2}} \nonumber\\
+				\implies B^{3/2}&=\sqrt{\pi^3}A^3 \nonumber\\
+				\implies A^3&=\dfrac{B^{3/2}}{\sqrt{\pi^3}}=\dfrac{B^{3/2}}{\pi^{3/2}}=\qty(\sqrt{\dfrac{B}{\pi}})^3 \nonumber\\
+				\implies A&=\sqrt{\dfrac{B}{\pi}} \label{eqn:const-A-using-B}
+			\end{align}
+			
+			However, equation (\ref{eqn:const-A-using-B}) only gives us the constant $A$ in terms of another constant $B$. We can find $B$ using the law of equipartition of energy of a gas.
+			
+			The average value of $v^2$ is obtained as
+			\begin{align}
+				\expval{v^2}&=\dfrac{\int_{0}^{\infty}{v^2\dd{N_v}}}{\int_{0}^{\infty}{\dd{N_v}}} \label{eqn:avg-v2}
+			\end{align}
+			
+			Now, we have
+			\begin{align*}
+				\int\limits_{0}^{\infty}{v^2\dd{N_v}}&=4\pi NA^3\int\limits_{0}^{\infty}{v^4e^{-Bv^2}\dd{v}} \\
+					&=4\pi NA^3\dfrac{\Gamma(5/2)}{2B^{5/2}}\qq{[using the standard integral]} \\
+				\implies\int\limits_{0}^{\infty}{v^2\dd{N_v}}&=\dfrac{2\pi NA^3}{B^{5/2}}\Gamma\qty(\dfrac{5}{2})
+			\end{align*}
+			
+			Also, we have
+			\begin{align*}
+				\int\limits_{0}^{\infty}{\dd{N_v}}&=4\pi NA^3\int\limits_{0}^{\infty}{v^2e^{-Bv^2}\dd{v}}=\dfrac{2\pi NA^3}{B^{3/2}}\Gamma\qty(\dfrac{3}{2})
+			\end{align*}
+			
+			Using the above two integrals in equation (\ref{eqn:avg-v2}), we obtain
+			\begin{align}
+				\expval{v^2}&=\dfrac{\cancel{2\pi NA^3}\Gamma(5/2)}{B^{5/2}}\cdot\dfrac{B^{3/2}}{\cancel{2\pi NA^3}\Gamma(3/2)} \nonumber\\
+					&=\dfrac{B^{3/2}}{B^{5/2}}\cdot\dfrac{\Gamma(5/2)}{\Gamma(3/2)} \nonumber\\
+					&=\dfrac{B^{3/2}}{B^{5/2}}\cdot\dfrac{\sfrac{3}{2}\cancel{\Gamma(3/2)}}{\cancel{\Gamma(3/2)}} \nonumber\\
+					&=\dfrac{3}{2}B^{\sfrac{3}{2}-\sfrac{5}{2}}=\dfrac{3}{2}B^{-1} \nonumber\\
+				\implies\expval{v^2}&=\dfrac{3}{2B} \label{eqn:avg-v2-using-B}
+			\end{align}
+			
+			Hence, the average kinetic energy of the gas molecules becomes
+			\begin{align}
+				\expval{K}&=\dfrac{1}{2}m\expval{v^2}=\dfrac{1}{2}m\times\dfrac{3}{2B} \nonumber\\
+				\implies\expval{K}&=\dfrac{3m}{4B} \label{eqn:avg-K}
+			\end{align}
+			
+			However, from the law of equipartition of energy of a gas, the average kinetic energy of the gas molecules at temperature $T$ is
+			\begin{align}
+				\expval{K}&=\dfrac{3}{2}k_BT \label{eqn:equipart-law}
+			\end{align}
+			where $k_B=\num{1.381e-23}\,\unit{\joule\per\kelvin}$ is the Boltzmann constant.
+			
+			Comparing equations (\ref{eqn:avg-K}) and (\ref{eqn:equipart-law}) gives us
+			\begin{align}
+				\dfrac{3m}{4B}&=\dfrac{3}{2}k_BT \nonumber\\
+				\implies\dfrac{\cancel{3}m}{\cancelto{2}{4}B}&=\dfrac{\cancel{3}}{\cancel{2}}k_BT \nonumber\\
+				\implies B&=\dfrac{m}{2k_BT} \label{eqn:const-B}
+			\end{align}
+			
+			Inserting equation (\ref{eqn:const-B}) in equation (\ref{eqn:const-A-using-B}) gives us the value of the constant $A$:
+			\begin{align}
+				A&=\sqrt{\dfrac{B}{\pi}} \nonumber\\
+				\implies A&=\sqrt{\dfrac{m}{2\pi k_BT}} \label{eqn:const-A}
+			\end{align}
+			
+			Finally, substituting for the constants $A$ and $B$ using equations (\ref{eqn:const-A}) and (\ref{eqn:const-B}) respectively in the Maxwellian distribution function for molecular speeds, we get
+			\begin{align}
+				\dd{N_v}&=4\pi N\qty(\dfrac{m}{2\pi k_BT})^{3/2}v^2e^{-mv^2/2k_BT}\dd{v} \nonumber\\
+				\implies\Aboxed{f_v=\dfrac{\dd{N_v}}{N\dd{v}}&=4\pi\qty(\dfrac{m}{2\pi k_BT})^{3/2}v^2e^{-mv^2/2k_BT}} \label{eqn:Maxwell-distn:fv}
+			\end{align}
+			
+			The \emph{Maxwellian density function} $f_v$, from equation (\ref{eqn:Maxwell-distn:fv}), gives us the probability per unit molecular speed of finding a molecule with speed between $v$ and $v+\dd{v}$. This function has the following features:
+			\begin{enumerate}
+				\item $f_v=0$ for $v=0$ (due to $v^2$) and $f_v\to 0$ for $v\to\infty$ (due to $e^{-mv^2/2k_BT}$).
+				
+				\item For small molecular speeds, the $v^2$ factor dominates and $f_v$ increases quadratically.
+				
+				\item As the speed increases, the $e^{-mv^2/2k_BT}$ factor begins to dominate and the distribution starts decaying exponentially after attaining a maximum value.
+				
+				\item As the temperature $T$ increases, more and more molecules gain kinetic energy and so the peak shifts towards higher molecular speeds. But the total number of molecules remains constant, and so to keep the corresponding area under the curve constant, curve becomes progressively flatter with increasing $T$.
+				
+				\item Because $f_v$ is a probability density function, at all $T$ the following condition must hold good:
+				\begin{align*}
+					\int\limits_{0}^{\infty}{f_v\dd{v}}=1
+				\end{align*}
+			\end{enumerate}
+			
+		\subsubsection*{Exercises}
+			\begin{enumerate}
+				\item Calculate the probability that the speed of an \ce{O2} molecule will lie between $100$ m/s and $101$ m/s at $200$ K. The mass of an \ce{O2} molecule is $32$ u. Take $k_B=\num{1.381e-23}\,\unit{\joule\per\kelvin}$ and $N_A=\num{6.023e26}\,\unit{\per\kilo\mole}$.
+			\end{enumerate}
