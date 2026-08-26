@@ -1,7 +1,85 @@
 \section{Molecular speeds}
 
 	\subsection{Average or mean speed}
+		The average speed of the gas is defined as
+		\begin{align*}
+			v_\text{avg}=\expval{v}&=\dfrac{1}{N}\int\limits_{0}^{\infty}{v\dd{N_v}}
+		\end{align*}
+		Substituting for $\dd{N_v}$ from the Maxwellian density function, we have
+		\begin{align*}
+			v_\text{avg}&=\dfrac{1}{N}\times 4\pi N\qty(\dfrac{m}{2\pi k_BT})^{3/2}\underbrace{\int\limits_{0}^{\infty}{v^3e^{-mv^2/2k_BT}\dd{v}}}_{=\dfrac{1}{2\qty(m/2k_BT)^2}} \\
+				&=\cancelto{2}{4}\pi\qty(\dfrac{m}{2\pi k_BT})^{3/2}\dfrac{1}{\cancel{2}\qty(m/2k_BT)^2} \\
+				&=2\pi\qty(\dfrac{m}{2\pi k_BT})^{3/2}\qty(\dfrac{2k_BT}{m})^2 \\
+				&=\dfrac{2\pi^{1-\sfrac{3}{2}}m^{\sfrac{3}{2}-2}}{2^{\sfrac{3}{2}-2}k_B^{\sfrac{3}{2}-2}T^{\sfrac{3}{2}-2}}=\dfrac{2^{\sfrac{3}{2}}k_B^{\sfrac{1}{2}}T^{\sfrac{1}{2}}}{\pi^{\sfrac{1}{2}}m^{\sfrac{1}{2}}} \\
+				&=\qty(\dfrac{2^3k_BT}{\pi m})^{\sfrac{1}{2}} \\
+			\implies\Aboxed{v_\text{avg}&=\sqrt{\dfrac{8k_BT}{\pi m}}}
+		\end{align*}
 	
 	\subsection{Root mean squared (RMS) speed}
+		The root mean squared (RMS) speed is defined as
+		\begin{align*}
+			v_\text{rms}&=\sqrt{\expval{v^2}}
+		\end{align*}
+		
+		Now, we already have that
+		\begin{align*}
+			\expval{v^2}=\dfrac{3}{2B}\qq{and}B=\dfrac{m}{2k_BT}
+		\end{align*}
+		The above give us
+		\begin{align*}
+			\expval{v^2}&=\dfrac{3}{\cancel{2}}\times\dfrac{\cancel{2}k_BT}{m}=\dfrac{3k_BT}{m}
+		\end{align*}
+		
+		Therefore the RMS speed is
+		\begin{align*}
+			\Aboxed{v_\text{rms}&=\sqrt{\dfrac{3k_BT}{m}}}
+		\end{align*}
 	
 	\subsection{Most probable speed}
+		\setcounter{equation}{0}
+		The most probable speed $v_p$ is defined as the speed at which the probability of finding a molecule is maximum.
+		\begin{itemize}
+			\item This is obtained by finding the root of the equation $\dv{f_v}{v}=0$.
+		\end{itemize}
+		
+		We have
+		\begin{align}
+			f_v&=4\pi\qty(\dfrac{m}{2\pi k_BT})^{3/2}v^2e^{-mv^2/2k_BT} \label{eqn:mps-fv}
+		\end{align}
+		
+		Differentiating equation (\ref{eqn:mps-fv}) with respect to $v$ and equating to 0 gives $v=v_p$, we have
+		\begin{align*}
+			\dv{f_v}{v}&=0 \\
+			\implies 4\pi\qty(\dfrac{m}{2\pi k_BT})^{3/2}\dv{v}\qty[v^2e^{-mv^2/2k_BT}]&=0 \\
+			\implies\dv{v}\qty[v^2e^{-mv^2/2k_BT}]&=0 \\
+			\implies 2v_pe^{-mv^2/2k_BT}+v_p^2\qty(-\dfrac{m}{2k_BT})2v_pe^{-mv^2/2k_BT}&=0 \\
+			\implies 2v_pe^{-mv^2/2k_BT}\qty[1-\dfrac{mv_p^2}{2k_BT}]&=0
+		\end{align*}
+		On the LHS of the above, the factor $e^{-mv^2/2k_BT}$ cannot be zero for any finite value of $v$. Hence we must have
+		\begin{align*}
+			1-\dfrac{mv_p^2}{2k_BT}&=0 \\
+			\implies\dfrac{mv_p^2}{2k_BT}&=1 \\
+			\implies v_p^2&=\dfrac{2k_BT}{m} \\
+			\implies\Aboxed{v_p&=\sqrt{\dfrac{2k_BT}{m}}}
+		\end{align*}
+		
+	\subsection*{Summary}
+		The three molecular speeds are as follows:
+		\begin{align*}
+			v_\text{avg}=\sqrt{\dfrac{8k_BT}{\pi m}},\qquad v_\text{rms}=\sqrt{\dfrac{3k_BT}{m}},\qquad v_p=\sqrt{\dfrac{2k_BT}{m}}
+		\end{align*}
+		
+		This gives their ratios to be
+		\begin{align*}
+			v_\text{avg}:v_\text{rms}:v_p=\sqrt{\dfrac{8}{\pi}}:\sqrt{3}:\sqrt{2}\approx 1.6:1.7:1.4
+		\end{align*}
+		The above shows that
+		\begin{align*}
+			v_p<v_\text{avg}<v_\text{rms}
+		\end{align*}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics*[width=0.8\textwidth]{figures/fig_max-mol-speeds.png}
+		\end{figure}
+		
+% Link for online Matplotlib plotting: https://matplotlib.codeutility.io/
