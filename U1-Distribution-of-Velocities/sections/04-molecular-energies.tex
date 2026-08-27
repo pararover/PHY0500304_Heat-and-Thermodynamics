@@ -1,5 +1,54 @@
 \section{Molecular energies}
 
 	\subsection{Average energy}
+		The average kinetic energy of a molecule is given as
+		\begin{align*}
+			\varepsilon_\text{avg}=\expval{E}&=\dfrac{1}{N}\int\limits_{0}^{\infty}{E\dd{N_E}} \\
+				&=\dfrac{1}{\cancel{N}}\times 2\cancel{N}\dfrac{1}{\sqrt{\pi}}\qty(\dfrac{1}{k_BT})^{\sfrac{3}{2}}\int\limits_{0}^{\infty}{E^{\sfrac{3}{2}}\exp\qty[-\dfrac{E}{k_BT}]\dd{E}} \\
+				&=\dfrac{2}{\sqrt{\pi}(k_BT)^{\sfrac{3}{2}}}\int\limits_{0}^{\infty}{E^{\sfrac{3}{2}}\exp\qty[-\dfrac{E}{k_BT}]\dd{E}}
+		\end{align*}
+		
+		In order to evaluate the integral on the RHS above, we make the substitution:
+		\begin{align*}
+			x&=\dfrac{E}{k_BT} \\
+			\implies E&=(k_BT)x
+		\end{align*}
+		Also we have
+		\begin{align*}
+			\dd{x}&=\dfrac{\dd{E}}{k_BT} \\
+			\implies\dd{E}&=k_BT\dd{x}
+		\end{align*}
+		Then we can re-write the integral as
+		\begin{align*}
+			\int\limits_{0}^{\infty}{E^{\sfrac{3}{2}}\exp\qty[-\dfrac{E}{k_BT}]\dd{E}}&=\int\limits_{0}^{\infty}{(k_BT)^{\sfrac{3}{2}}x^{\sfrac{3}{2}}e^{-x}k_BT\dd{x}} \\
+				&=(k_BT)^{\sfrac{3}{2}}(k_BT)\underbrace{\int\limits_{0}^{\infty}{x^{\sfrac{3}{2}}e^{-x}\dd{x}}}_{=\Gamma\qty(\frac{5}{2})} \\
+				&=(k_BT)^{\sfrac{3}{2}}(k_BT)\,\Gamma\qty(\frac{5}{2}) \\
+			\implies\int\limits_{0}^{\infty}{E^{\sfrac{3}{2}}\exp\qty[-\dfrac{E}{k_BT}]\dd{E}}&=(k_BT)^{\sfrac{3}{2}}(k_BT)\dfrac{3\sqrt{\pi}}{4}
+		\end{align*}
+		
+		This gives us
+		\begin{align*}
+			\varepsilon_\text{avg}&=\dfrac{\cancel{2}}{\cancel{\sqrt{\pi}}\cancel{(k_BT)^{\sfrac{3}{2}}}}\cancel{(k_BT)^{\sfrac{3}{2}}}(k_BT)\dfrac{3\cancel{\sqrt{\pi}}}{\cancelto{2}{4}} \\
+			\implies\Aboxed{\varepsilon_\text{avg}&=\dfrac{3}{2}k_BT}
+		\end{align*}
 	
 	\subsection{Most probable energy}
+		To obtain the most probable energy $\varepsilon_p$, we need to find the energy such that $\dv{f_E}{E}=0$.
+		
+		Therefore,
+		\begin{align*}
+			\dv{f_E}{E}&=0 \\
+			\implies\dv{E}\qty[2\qty(\dfrac{E}{\pi})^{\sfrac{1}{2}}\qty(\dfrac{1}{k_BT})^{\sfrac{3}{2}}\exp\qty(-\dfrac{E}{k_BT})]&=0 \\
+			\implies\dfrac{2}{\sqrt{\pi}(k_BT)^{\sfrac{3}{2}}}\dv{E}\qty[E^{\sfrac{1}{2}}\exp\qty(-\dfrac{E}{k_BT})]&=0 \\
+			\implies\dv{E}\qty[E^{\sfrac{1}{2}}\exp\qty(-\dfrac{E}{k_BT})]&=0 \\
+			\implies\dfrac{1}{2\varepsilon_p^{\sfrac{1}{2}}}\cancel{\exp\qty(-\dfrac{E}{k_BT})}+\varepsilon_p^{\sfrac{1}{2}}\qty(-\dfrac{1}{k_BT})\cancel{\exp\qty(-\dfrac{E}{k_BT})}&=0 \\
+			\implies\dfrac{1}{2\varepsilon_p^{\sfrac{1}{2}}}-\dfrac{\varepsilon_p^{\sfrac{1}{2}}}{k_BT}&=0 \\
+			\implies\dfrac{\varepsilon_p^{\sfrac{1}{2}}}{k_BT}&=\dfrac{1}{2\varepsilon_p^{\sfrac{1}{2}}} \\
+			\implies\Aboxed{\varepsilon_p^{\sfrac{1}{2}}&=\dfrac{1}{2}k_BT}
+		\end{align*}
+		
+		\begin{itemize}
+			\item We find that $\varepsilon_\text{avg}=3\varepsilon_p$.
+			
+			\item At any given temperature, $\varepsilon_\text{avg}$ and $\varepsilon_p$ are the same for all gases.
+		\end{itemize}
