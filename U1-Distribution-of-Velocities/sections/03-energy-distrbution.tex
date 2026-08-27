@@ -1,3 +1,49 @@
 \section{Energy distribution of a Maxwellian gas}
-
-	Insert section content.
+	\setcounter{equation}{0}
+	In order the derive the distribution of energies of a Maxwellian gas, the following assumptions are made:
+	\begin{enumerate}
+		\item The energy of a Maxwellian gas is almost entirely due to the kinetic energy, i.e. $E=K$.
+		
+		\item The number of molecules with kinetic energy in the range $E$ and $E+\dd{E}$ is the same as the number of molecules with speeds in the range $v$ and $v+\dd{v}$.
+	\end{enumerate}
+	
+	We know that for a molecule with mass $m$ and moving with a speed $v$, its kinetic energy is
+	\begin{align}
+		E&=\dfrac{1}{2}mv^2 \nonumber\\
+		\implies v^2&=\dfrac{2E}{m} \label{eqn:en-dist:v2}\\
+		\implies v&=\sqrt{\dfrac{2E}{m}} \label{eqn:en-dist:v}
+	\end{align}
+	
+	Taking the differential of equation (\ref{eqn:en-dist:v2}), we have
+	\begin{align}
+		2v\dd{v}&=\dfrac{2\dd{E}}{m} \nonumber\\
+		\implies\dd{E}&=mv\dd{v} \nonumber\\
+			&=m\sqrt{\dfrac{2E}{m}}\dd{v}\qq{[using eqn. (\ref{eqn:en-dist:v})]}\nonumber\\
+		\implies\dd{E}&=\sqrt{2mE}\dd{v} \label{eqn:en-dist:dE}
+	\end{align}
+	
+	Now, from assumption \#2, we have
+	\begin{align}
+		\dd{N_E}&=\dd{N_v} \nonumber\\
+		\implies\dd{N_E}&=4\pi N\qty(\dfrac{m}{2\pi k_BT})^{\sfrac{3}{2}}v^2\exp\qty[-\dfrac{mv^2}{2k_BT}]\dd{v} \nonumber\\
+			&=4\pi N\qty(\dfrac{m}{2\pi k_BT})^{\sfrac{3}{2}} \underbrace{\qty(\dfrac{2E}{m})}_{\text{from eqn. (\ref{eqn:en-dist:v2})}} \exp\underbrace{\qty[-\dfrac{E}{k_BT}]}_{\because\,E=\dfrac{mv^2}{2}} \underbrace{\qty(\dfrac{\dd{E}}{\sqrt{2mE}})}_{\text{from eqn. (\ref{eqn:en-dist:dE})}} \nonumber\\
+			&=4\pi N \dfrac{m^{\sfrac{3}{2}}2Em^{-1}}{2\sqrt{2}\pi^{\sfrac{3}{2}}(k_BT)^{\sfrac{3}{2}}} \cdot \dfrac{1}{\sqrt{2}m^{\sfrac{1}{2}}E^{\sfrac{1}{2}}} \exp\qty[-\dfrac{E}{k_BT}]\dd{E} \nonumber\\
+			&=\dfrac{2\pi^{1-\sfrac{3}{2}}Nm^{\sfrac{3}{2}-1-\sfrac{1}{2}}E^{1-\sfrac{1}{2}}}{(k_BT)^{\sfrac{3}{2}}}\exp\qty[-\dfrac{E}{k_BT}]\dd{E} \nonumber\\
+			&=\dfrac{2N\pi^{-\sfrac{1}{2}}E^{\sfrac{1}{2}}}{(k_BT)^{\sfrac{3}{2}}}\exp\qty[-\dfrac{E}{k_BT}]\dd{E} \nonumber\\
+		\implies\Aboxed{\dd{N_E}&=2N\qty(\dfrac{E}{\pi})^{\sfrac{1}{2}}\qty(\dfrac{1}{k_BT})^{\sfrac{3}{2}}\exp\qty[-\dfrac{E}{k_BT}]\dd{E}} \label{eqn:en-dist:dNE}
+	\end{align}
+	Equation (\ref{eqn:en-dist:dNE}) gives us the number of molecules with energies between $E$ and $E+\dd{E}$.
+	
+	Further, from equation (\ref{eqn:en-dist:dNE}), we find the probability of finding a molecule with energies between $E$ and $E+\dd{E}$ to be
+	\begin{align}
+		\Aboxed{\dd{P_E}=\dfrac{\dd{N_E}}{N}&=2\qty(\dfrac{E}{\pi})^{\sfrac{1}{2}}\qty(\dfrac{1}{k_BT})^{\sfrac{3}{2}}\exp\qty[-\dfrac{E}{k_BT}]\dd{E}} \label{eqn:en-dist:dPE}
+	\end{align}
+	
+	Finally, from equation (\ref{eqn:en-dist:dPE}), we obtain the probability density function for molecular energies to be
+	\begin{align}
+		\Aboxed{f_E=\dv{P_E}{E}=\dfrac{\dd{N_E}}{N\dd{E}}&=2\qty(\dfrac{E}{\pi})^{\sfrac{1}{2}}\qty(\dfrac{1}{k_BT})^{\sfrac{3}{2}}\exp\qty[-\dfrac{E}{k_BT}]} \label{eqn:en-dist:fE}
+	\end{align}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics*[width=0.8\textwidth]{figures/fig_max-en-pdf.png}
+	\end{figure}
