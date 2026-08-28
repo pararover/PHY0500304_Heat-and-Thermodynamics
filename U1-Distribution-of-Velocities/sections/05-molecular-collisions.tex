@@ -1,8 +1,105 @@
 \section{Molecular collisions}
 
 	\subsection{Mean free path}
-		A gas attains thermal equilibrium after successive molecular collisions.
+		\setcounter{equation}{0}
+		A gas attains thermal equilibrium after successive molecular collisions. We define \emph{free path} as the distance covered by a particle between successive collisions. In the figure below, the paths taken by a gas molecule between collisions is shown. For instance, $\lambda_1$ is the free path between collisions 1 and 2. Similarly $\lambda_2$ is the free path between collisions 2 and 3, and so on.
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=0.8\textwidth]{figures/fig_collision-path.png}
 		\end{figure}
+		
+		The \emph{mean free path} $\lambda$ of a gas is the average distance travelled by a molecule between two successive collisions. Suppose a molecule undergoes $N$ collisions, then we have
+		\begin{align}
+			\lambda&=\dfrac{\text{total distance travelled}}{\text{total number of collisions}} \nonumber\\
+				&=\dfrac{\lambda_1+\lambda_2+\cdots+\lambda_N}{N} \nonumber\\
+			\implies\lambda&=\dfrac{1}{N}\sum_{i=1}^{N}{\lambda_i} \label{eqn:mfp-defn}
+		\end{align}
+		
+		If $T$ is the total time taken by a molecule to undergo $N$ collisions and $\expval{v}$ is the average molecular speed, then we have
+		\begin{align*}
+			\sum_{i=1}^{N}{\lambda_i}&=\expval{v}T
+		\end{align*}
+		
+		Then equation (\ref{eqn:mfp-defn}) becomes
+		\begin{align}
+			\lambda&=\dfrac{\expval{v}T}{N} \label{eqn:mfp-expr-01}
+		\end{align}
+		
+		Now, the mean time between two successive collisions can be obtained as
+		\begin{align*}
+			\tau&=\dfrac{T}{N}
+		\end{align*}
+		
+		Then, equation (\ref{eqn:mfp-expr-01}) becomes
+		\begin{align}
+			\lambda&=\expval{v}\tau=\dfrac{\expval{v}}{P_c}
+		\end{align}
+		where the collision frequency $P_c=\dfrac{1}{\tau}$ measures the average number of collisions per unit time.
+		
+		\subsubsection{Estimation of $\boldsymbol{\lambda}$}
+			\begin{enumerate}[I.]
+				\item \emph{Zeroth order approximation}: In this approximation, it is assumed that all molecules of the gas are immobile, except for one.
+				\begin{figure}[h!]
+					\centering
+					\includegraphics[width=0.9\textwidth]{figures/fig_collision-xsec.png}
+				\end{figure}
+				
+				If $r$ is the radius of a molecule, then for a collusion to occur, the centre-to-centre distance between the moving and stationary molecules would be equal to its diameter $d=2r$.
+				
+				We may visualize this as if the moving molecule carries with it a circular disc of radius $d$. Therefore, in time $\Delta t$, it can be thought of as sweeping out a cylinder of cross sectional area $\pi d^2$ and length $\expval{v}\Delta t$.
+				
+				Collisions would occur only with molecules whose centres lie within this cylinder.
+				
+				We define the microscopic collision cross-section $\sigma$ as
+				\begin{align*}
+					\sigma=\pi d^2
+				\end{align*}
+				
+				During the time interval $\Delta t$, the molecule would collide with all other molecules whose centres lie within the cylinder of volume
+				\begin{align*}
+					\Delta V&=\pi d^2\expval{v}\Delta t
+				\end{align*}
+				
+				If $n$ is the number density of the gas, then the total number of molecules contained within the volume $\Delta V$ is
+				\begin{align*}
+					\Delta N&=n\Delta V \\
+					\implies\Delta N&=n\pi d^2\expval{v}\Delta t
+				\end{align*}
+				But $\Delta N$ above is also the number of collisions experienced by the moving molecule in time $\Delta t$. So we can obtain the collision frequency as
+				\begin{align*}
+					P_c&=\dfrac{\Delta N}{\Delta t}=n\pi d^2\expval{v} \\
+					\implies P_c&=n\sigma\expval{v}
+				\end{align*}
+				
+				This gives us the mean free path to be
+				\begin{align*}
+					\lambda&=\dfrac{\expval{v}}{P_c}=\dfrac{\cancel{\expval{v}}}{n\sigma\cancel{\expval{v}}} \\
+					\implies\Aboxed{\lambda&=\dfrac{1}{n\sigma}}
+				\end{align*}
+				
+				\setcounter{equation}{0}
+				\item \emph{First order approximation}: In this approximation, the motion of all the molecules are taken into account.
+				\begin{figure}[h!]
+					\centering
+					\includegraphics[width=0.35\textwidth]{figures/fig_relative-vel.png}
+				\end{figure}
+				
+				Consider two molecules moving with average speed $\expval{v}$ along $OA$ and $OB$ with angle $\theta$ between them. Let $v_r$ be the relative speed between the molecules. Then we have
+				\begin{align}
+					v_r&=\qty[\expval{v}^2+\expval{v}^2-2\expval{v}^2\cos{\theta}]^{\sfrac{1}{2}} \nonumber\\
+					\implies v_r&=\qty[2\expval{v}^2(1-\cos{\theta})]^{\sfrac{1}{2}} \label{eqn:rel-vel-01}
+				\end{align}
+				
+				We know that
+				\begin{align*}
+					\cos{2\theta}&=1-2\sin^2{\theta} \\
+					\implies 1-\cos{2\theta}&=2\sin^2{\theta} \\
+					\implies 1-\cos{\theta}&=2\sin^2\qty(\dfrac{\theta}{2})\qq{[Setting $\theta\to\theta/2$]}
+				\end{align*}
+				
+				Therefore, equation (\ref{eqn:rel-vel-01}) becomes
+				\begin{align}
+					v_r&=\qty[2\expval{v}^22\sin^2\qty(\sfrac{\theta}{2})]^{\sfrac{1}{2}} \nonumber\\
+					\implies v_r&=2\expval{v}\sin\qty(\dfrac{\theta}{2}) \label{eqn:rel-vel-02}
+				\end{align}
+			\end{enumerate}
