@@ -102,4 +102,63 @@
 					v_r&=\qty[2\expval{v}^22\sin^2\qty(\sfrac{\theta}{2})]^{\sfrac{1}{2}} \nonumber\\
 					\implies v_r&=2\expval{v}\sin\qty(\dfrac{\theta}{2}) \label{eqn:rel-vel-02}
 				\end{align}
+				
+				To find the average value of $v_r$, we integrate equation (\ref{eqn:rel-vel-02}) over all solid angles, i.e.
+				\begin{align}
+					\expval{v_r}&=\dfrac{1}{4\pi}\int\limits_{0}^{4\pi}{v_r\dd{\Omega}} \nonumber\\
+						&=\dfrac{1}{4\pi}\int\limits_{\theta=0}^{\pi}\int\limits_{\phi=0}^{2\pi}{v_r\sin{\theta}\dd{\theta}\dd{\phi}}\qq{[$\because\;\dd{\Omega}=\sin{\theta}\dd{\theta}\dd{\phi}$]} \nonumber\\
+						&=\dfrac{1}{4\pi}\qty[\int\limits_{0}^{2\pi}{\dd{\phi}}]\int\limits_{0}^{\pi}{v_r\sin{\theta}\dd{\theta}} \nonumber\\
+						&=\dfrac{1}{\cancelto{2}{4\pi}}\times \cancel{2\pi}\int\limits_{0}^{\pi}{v_r\sin{\theta}\dd{\theta}} \nonumber\\
+						&=\dfrac{1}{\cancel{2}}\int\limits_{0}^{\pi}{\qty[\cancel{2}\expval{v}\sin\qty(\dfrac{\theta}{2})]\sin{\theta}\dd{\theta}}\qq{[Using eqn. (\ref{eqn:rel-vel-02})]} \nonumber\\
+						&=\expval{v}\int\limits_{0}^{\pi}{\sin{\theta}\sin{\dfrac{\theta}{2}}\dd{\theta}} \nonumber\\
+						&=\expval{v}\int\limits_{0}^{\pi}{\qty(2\sin{\dfrac{\theta}{2}}\cos{\dfrac{\theta}{2}})\sin{\dfrac{\theta}{2}}\dd{\theta}} \nonumber\\
+					\implies \expval{v_r}&=2\expval{v}\int\limits_{0}^{\pi}{\sin^2{\dfrac{\theta}{2}}\cos{\dfrac{\theta}{2}}\dd{\theta}} \label{eqn:rel-vel-03}
+				\end{align}
+				
+				To evaluate the integral on the RHS of equation (\ref{eqn:rel-vel-03}), we make the substitution:
+				\begin{align*}
+					x&=\sin{\dfrac{\theta}{2}} \\
+					\implies\dd{x}&=\dfrac{1}{2}\cos{\dfrac{\theta}{2}}\dd{\theta} \\
+					\implies\cos{\dfrac{\theta}{2}}\dd{\theta}&=2\dd{x}
+				\end{align*}
+				Then for the limits, we have
+				\begin{multicols}{2}
+					At $\theta=0$, we have\vspace{-2ex}
+					\begin{align*}
+						x&=\sin{0}=0
+					\end{align*}
+					
+					At $\theta=\pi$, we have\vspace{-2ex}
+					\begin{align*}
+						x&=\sin{\dfrac{\pi}{2}}=1
+					\end{align*}
+				\end{multicols}
+				
+				Then we have
+				\begin{align*}
+					\int\limits_{0}^{\pi}{\sin^2{\dfrac{\theta}{2}}\cos{\dfrac{\theta}{2}}\dd{\theta}}&=\int\limits_{0}^{1}{\qty(x^2)\qty(2\dd{x})} \\
+						&=2\int\limits_{0}^{1}{x^2\dd{x}}=2\left.\dfrac{x^3}{3}\right|_{0}^{1}=\dfrac{2}{3}
+				\end{align*}
+				
+				Hence, from equation (\ref{eqn:rel-vel-03}), we get
+				\begin{align*}
+					\expval{v_r}&=2\expval{v}\times\dfrac{2}{3} \\
+					\implies\expval{v_r}&=\dfrac{4}{3}\expval{v}
+				\end{align*}
+				
+				Then the collision frequency gets modified from that in the zeroth order approximation as
+				\begin{align}
+					P_c&=n\sigma\expval{v_r} \nonumber\\
+					\implies P_c&=\dfrac{4}{3}N\sigma\expval{v} \label{eqn:coll-freq}
+				\end{align}
+				Equation (\ref{eqn:coll-freq}) shows that when we take into account the motion of the other molecules, the collision frequency increases.
+				
+				This also gives us the modified mean free path (or \emph{Clausius mean free path}) to be
+				\begin{align}
+					\lambda_\text{Cl}&=\dfrac{\expval{v}}{P_c} \nonumber\\
+						&=\dfrac{\cancel{\expval{v}}}{\sfrac{4}{3}N\sigma\cancel{\expval{v}}} \nonumber\\
+						&=\dfrac{3}{4N\sigma} \nonumber\\
+					\implies\lambda_\text{Cl}&=\dfrac{0.75}{n\sigma} \label{eqn:mfp-clausius}
+				\end{align}
+				As expected, equation (\ref{eqn:mfp-clausius}) shows that when the motion of the other molecules are taken into account, the mean free path decreases.
 			\end{enumerate}
