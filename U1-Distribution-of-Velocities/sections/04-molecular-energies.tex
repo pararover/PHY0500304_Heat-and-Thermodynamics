@@ -31,6 +31,11 @@
 			\varepsilon_\text{avg}&=\dfrac{\cancel{2}}{\cancel{\sqrt{\pi}}\cancel{(k_BT)^{\sfrac{3}{2}}}}\cancel{(k_BT)^{\sfrac{3}{2}}}(k_BT)\dfrac{3\cancel{\sqrt{\pi}}}{\cancelto{2}{4}} \\
 			\implies\Aboxed{\varepsilon_\text{avg}&=\dfrac{3}{2}k_BT}
 		\end{align*}
+		
+		In general, for molecules with $f$ degrees of freedom, the average energy is
+		\begin{align*}
+			\Aboxed{\varepsilon_\text{avg}&=\dfrac{f}{2}k_BT}
+		\end{align*}
 	
 	\subsection{Most probable energy}
 		To obtain the most probable energy $\varepsilon_p$, we need to find the energy such that $\dv{f_E}{E}=0$.
@@ -44,7 +49,7 @@
 			\implies\dfrac{1}{2\varepsilon_p^{\sfrac{1}{2}}}\cancel{\exp\qty(-\dfrac{E}{k_BT})}+\varepsilon_p^{\sfrac{1}{2}}\qty(-\dfrac{1}{k_BT})\cancel{\exp\qty(-\dfrac{E}{k_BT})}&=0 \\
 			\implies\dfrac{1}{2\varepsilon_p^{\sfrac{1}{2}}}-\dfrac{\varepsilon_p^{\sfrac{1}{2}}}{k_BT}&=0 \\
 			\implies\dfrac{\varepsilon_p^{\sfrac{1}{2}}}{k_BT}&=\dfrac{1}{2\varepsilon_p^{\sfrac{1}{2}}} \\
-			\implies\Aboxed{\varepsilon_p^{\sfrac{1}{2}}&=\dfrac{1}{2}k_BT}
+			\implies\Aboxed{\varepsilon_p&=\dfrac{1}{2}k_BT}
 		\end{align*}
 		
 		\begin{itemize}
@@ -52,3 +57,10 @@
 			
 			\item At any given temperature, $\varepsilon_\text{avg}$ and $\varepsilon_p$ are the same for all gases.
 		\end{itemize}
+		
+	\subsection*{Exercises}
+		\begin{enumerate}
+			\item In a nuclear fusion reactor, deuterium nuclei fuse if their average energy is $0.72\;\unit{\mega\electronvolt}$. Calculate the temperature required for nuclear fusion to occur.
+			
+			\item Nitrogen molecules obey Maxwellian distribution law and their mean energy is $\num{15.6e-21}\;\unit{\joule}$. Calculate their average speed.
+		\end{enumerate}

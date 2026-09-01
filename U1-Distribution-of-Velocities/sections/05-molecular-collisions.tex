@@ -36,129 +36,153 @@
 		\end{align}
 		where the collision frequency $P_c=\dfrac{1}{\tau}$ measures the average number of collisions per unit time.
 		
-		\subsubsection{Estimation of $\boldsymbol{\lambda}$}
-			\begin{enumerate}[I.]
-				\item \emph{Zeroth order approximation}: In this approximation, it is assumed that all molecules of the gas are immobile, except for one.
-				\begin{figure}[h!]
-					\centering
-					\includegraphics[width=0.9\textwidth]{figures/fig_collision-xsec.png}
-				\end{figure}
-				
-				If $r$ is the radius of a molecule, then for a collusion to occur, the centre-to-centre distance between the moving and stationary molecules would be equal to its diameter $d=2r$.
-				
-				We may visualize this as if the moving molecule carries with it a circular disc of radius $d$. Therefore, in time $\Delta t$, it can be thought of as sweeping out a cylinder of cross sectional area $\pi d^2$ and length $\expval{v}\Delta t$.
-				
-				Collisions would occur only with molecules whose centres lie within this cylinder.
-				
-				We define the microscopic collision cross-section $\sigma$ as
+	\subsection{Estimation of mean free path}
+	
+		\subsubsection{Zeroth order approximation}
+			In this approximation, it is assumed that all molecules of the gas are immobile, except for one.
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=0.9\textwidth]{figures/fig_collision-xsec.png}
+			\end{figure}
+			
+			If $r$ is the radius of a molecule, then for a collusion to occur, the centre-to-centre distance between the moving and stationary molecules would be equal to its diameter $d=2r$.
+			
+			We may visualize this as if the moving molecule carries with it a circular disc of radius $d$. Therefore, in time $\Delta t$, it can be thought of as sweeping out a cylinder of cross sectional area $\pi d^2$ and length $\expval{v}\Delta t$.
+			
+			Collisions would occur only with molecules whose centres lie within this cylinder.
+			
+			We define the microscopic collision cross-section $\sigma$ as
+			\begin{align*}
+				\sigma=\pi d^2
+			\end{align*}
+			
+			During the time interval $\Delta t$, the molecule would collide with all other molecules whose centres lie within the cylinder of volume
+			\begin{align*}
+				\Delta V&=\pi d^2\expval{v}\Delta t
+			\end{align*}
+			
+			If $n$ is the number density of the gas, then the total number of molecules contained within the volume $\Delta V$ is
+			\begin{align*}
+				\Delta N&=n\Delta V \\
+				\implies\Delta N&=n\pi d^2\expval{v}\Delta t
+			\end{align*}
+			But $\Delta N$ above is also the number of collisions experienced by the moving molecule in time $\Delta t$. So we can obtain the collision frequency as
+			\begin{align*}
+				P_c&=\dfrac{\Delta N}{\Delta t}=n\pi d^2\expval{v} \\
+				\implies\Aboxed{P_c&=n\sigma\expval{v}}
+			\end{align*}
+			
+			This gives us the mean free path to be
+			\begin{align*}
+				\lambda&=\dfrac{\expval{v}}{P_c}=\dfrac{\cancel{\expval{v}}}{n\sigma\cancel{\expval{v}}} \\
+				\implies\Aboxed{\lambda&=\dfrac{1}{n\sigma}}
+			\end{align*}
+			
+		\subsubsection{First order approximation}			
+			In this approximation, the motion of all the molecules are taken into account.
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=0.35\textwidth]{figures/fig_relative-vel.png}
+			\end{figure}
+			
+			Consider two molecules moving with average speed $\expval{v}$ along $OA$ and $OB$ with angle $\theta$ between them. Let $v_r$ be the relative speed between the molecules. Then we have
+			\begin{align}
+				v_r&=\qty[\expval{v}^2+\expval{v}^2-2\expval{v}^2\cos{\theta}]^{\sfrac{1}{2}} \nonumber\\
+				\implies v_r&=\qty[2\expval{v}^2(1-\cos{\theta})]^{\sfrac{1}{2}} \label{eqn:rel-vel-01}
+			\end{align}
+			
+			We know that
+			\begin{align*}
+				\cos{2\theta}&=1-2\sin^2{\theta} \\
+				\implies 1-\cos{2\theta}&=2\sin^2{\theta} \\
+				\implies 1-\cos{\theta}&=2\sin^2\qty(\dfrac{\theta}{2})\qq{[Setting $\theta\to\theta/2$]}
+			\end{align*}
+			
+			Therefore, equation (\ref{eqn:rel-vel-01}) becomes
+			\begin{align}
+				v_r&=\qty[2\expval{v}^22\sin^2\qty(\sfrac{\theta}{2})]^{\sfrac{1}{2}} \nonumber\\
+				\implies v_r&=2\expval{v}\sin\qty(\dfrac{\theta}{2}) \label{eqn:rel-vel-02}
+			\end{align}
+			
+			To find the average value of $v_r$, we integrate equation (\ref{eqn:rel-vel-02}) over all solid angles, i.e.
+			\begin{align}
+				\expval{v_r}&=\dfrac{1}{4\pi}\int\limits_{0}^{4\pi}{v_r\dd{\Omega}} \nonumber\\
+					&=\dfrac{1}{4\pi}\int\limits_{\theta=0}^{\pi}\int\limits_{\phi=0}^{2\pi}{v_r\sin{\theta}\dd{\theta}\dd{\phi}}\qq{[$\because\;\dd{\Omega}=\sin{\theta}\dd{\theta}\dd{\phi}$]} \nonumber\\
+					&=\dfrac{1}{4\pi}\qty[\int\limits_{0}^{2\pi}{\dd{\phi}}]\int\limits_{0}^{\pi}{v_r\sin{\theta}\dd{\theta}} \nonumber\\
+					&=\dfrac{1}{\cancelto{2}{4\pi}}\times \cancel{2\pi}\int\limits_{0}^{\pi}{v_r\sin{\theta}\dd{\theta}} \nonumber\\
+					&=\dfrac{1}{\cancel{2}}\int\limits_{0}^{\pi}{\qty[\cancel{2}\expval{v}\sin\qty(\dfrac{\theta}{2})]\sin{\theta}\dd{\theta}}\qq{[Using eqn. (\ref{eqn:rel-vel-02})]} \nonumber\\
+					&=\expval{v}\int\limits_{0}^{\pi}{\sin{\theta}\sin{\dfrac{\theta}{2}}\dd{\theta}} \nonumber\\
+					&=\expval{v}\int\limits_{0}^{\pi}{\qty(2\sin{\dfrac{\theta}{2}}\cos{\dfrac{\theta}{2}})\sin{\dfrac{\theta}{2}}\dd{\theta}} \nonumber\\
+				\implies \expval{v_r}&=2\expval{v}\int\limits_{0}^{\pi}{\sin^2{\dfrac{\theta}{2}}\cos{\dfrac{\theta}{2}}\dd{\theta}} \label{eqn:rel-vel-03}
+			\end{align}
+			
+			To evaluate the integral on the RHS of equation (\ref{eqn:rel-vel-03}), we make the substitution:
+			\begin{align*}
+				x&=\sin{\dfrac{\theta}{2}} \\
+				\implies\dd{x}&=\dfrac{1}{2}\cos{\dfrac{\theta}{2}}\dd{\theta} \\
+				\implies\cos{\dfrac{\theta}{2}}\dd{\theta}&=2\dd{x}
+			\end{align*}
+			Then for the limits, we have
+			\begin{multicols}{2}
+				At $\theta=0$, we have\vspace{-2ex}
 				\begin{align*}
-					\sigma=\pi d^2
+					x&=\sin{0}=0
 				\end{align*}
 				
-				During the time interval $\Delta t$, the molecule would collide with all other molecules whose centres lie within the cylinder of volume
+				At $\theta=\pi$, we have\vspace{-2ex}
 				\begin{align*}
-					\Delta V&=\pi d^2\expval{v}\Delta t
+					x&=\sin{\dfrac{\pi}{2}}=1
 				\end{align*}
-				
-				If $n$ is the number density of the gas, then the total number of molecules contained within the volume $\Delta V$ is
-				\begin{align*}
-					\Delta N&=n\Delta V \\
-					\implies\Delta N&=n\pi d^2\expval{v}\Delta t
-				\end{align*}
-				But $\Delta N$ above is also the number of collisions experienced by the moving molecule in time $\Delta t$. So we can obtain the collision frequency as
-				\begin{align*}
-					P_c&=\dfrac{\Delta N}{\Delta t}=n\pi d^2\expval{v} \\
-					\implies P_c&=n\sigma\expval{v}
-				\end{align*}
-				
-				This gives us the mean free path to be
-				\begin{align*}
-					\lambda&=\dfrac{\expval{v}}{P_c}=\dfrac{\cancel{\expval{v}}}{n\sigma\cancel{\expval{v}}} \\
-					\implies\Aboxed{\lambda&=\dfrac{1}{n\sigma}}
-				\end{align*}
-				
-				\setcounter{equation}{0}
-				\item \emph{First order approximation}: In this approximation, the motion of all the molecules are taken into account.
-				\begin{figure}[h!]
-					\centering
-					\includegraphics[width=0.35\textwidth]{figures/fig_relative-vel.png}
-				\end{figure}
-				
-				Consider two molecules moving with average speed $\expval{v}$ along $OA$ and $OB$ with angle $\theta$ between them. Let $v_r$ be the relative speed between the molecules. Then we have
-				\begin{align}
-					v_r&=\qty[\expval{v}^2+\expval{v}^2-2\expval{v}^2\cos{\theta}]^{\sfrac{1}{2}} \nonumber\\
-					\implies v_r&=\qty[2\expval{v}^2(1-\cos{\theta})]^{\sfrac{1}{2}} \label{eqn:rel-vel-01}
-				\end{align}
-				
-				We know that
-				\begin{align*}
-					\cos{2\theta}&=1-2\sin^2{\theta} \\
-					\implies 1-\cos{2\theta}&=2\sin^2{\theta} \\
-					\implies 1-\cos{\theta}&=2\sin^2\qty(\dfrac{\theta}{2})\qq{[Setting $\theta\to\theta/2$]}
-				\end{align*}
-				
-				Therefore, equation (\ref{eqn:rel-vel-01}) becomes
-				\begin{align}
-					v_r&=\qty[2\expval{v}^22\sin^2\qty(\sfrac{\theta}{2})]^{\sfrac{1}{2}} \nonumber\\
-					\implies v_r&=2\expval{v}\sin\qty(\dfrac{\theta}{2}) \label{eqn:rel-vel-02}
-				\end{align}
-				
-				To find the average value of $v_r$, we integrate equation (\ref{eqn:rel-vel-02}) over all solid angles, i.e.
-				\begin{align}
-					\expval{v_r}&=\dfrac{1}{4\pi}\int\limits_{0}^{4\pi}{v_r\dd{\Omega}} \nonumber\\
-						&=\dfrac{1}{4\pi}\int\limits_{\theta=0}^{\pi}\int\limits_{\phi=0}^{2\pi}{v_r\sin{\theta}\dd{\theta}\dd{\phi}}\qq{[$\because\;\dd{\Omega}=\sin{\theta}\dd{\theta}\dd{\phi}$]} \nonumber\\
-						&=\dfrac{1}{4\pi}\qty[\int\limits_{0}^{2\pi}{\dd{\phi}}]\int\limits_{0}^{\pi}{v_r\sin{\theta}\dd{\theta}} \nonumber\\
-						&=\dfrac{1}{\cancelto{2}{4\pi}}\times \cancel{2\pi}\int\limits_{0}^{\pi}{v_r\sin{\theta}\dd{\theta}} \nonumber\\
-						&=\dfrac{1}{\cancel{2}}\int\limits_{0}^{\pi}{\qty[\cancel{2}\expval{v}\sin\qty(\dfrac{\theta}{2})]\sin{\theta}\dd{\theta}}\qq{[Using eqn. (\ref{eqn:rel-vel-02})]} \nonumber\\
-						&=\expval{v}\int\limits_{0}^{\pi}{\sin{\theta}\sin{\dfrac{\theta}{2}}\dd{\theta}} \nonumber\\
-						&=\expval{v}\int\limits_{0}^{\pi}{\qty(2\sin{\dfrac{\theta}{2}}\cos{\dfrac{\theta}{2}})\sin{\dfrac{\theta}{2}}\dd{\theta}} \nonumber\\
-					\implies \expval{v_r}&=2\expval{v}\int\limits_{0}^{\pi}{\sin^2{\dfrac{\theta}{2}}\cos{\dfrac{\theta}{2}}\dd{\theta}} \label{eqn:rel-vel-03}
-				\end{align}
-				
-				To evaluate the integral on the RHS of equation (\ref{eqn:rel-vel-03}), we make the substitution:
-				\begin{align*}
-					x&=\sin{\dfrac{\theta}{2}} \\
-					\implies\dd{x}&=\dfrac{1}{2}\cos{\dfrac{\theta}{2}}\dd{\theta} \\
-					\implies\cos{\dfrac{\theta}{2}}\dd{\theta}&=2\dd{x}
-				\end{align*}
-				Then for the limits, we have
-				\begin{multicols}{2}
-					At $\theta=0$, we have\vspace{-2ex}
-					\begin{align*}
-						x&=\sin{0}=0
-					\end{align*}
-					
-					At $\theta=\pi$, we have\vspace{-2ex}
-					\begin{align*}
-						x&=\sin{\dfrac{\pi}{2}}=1
-					\end{align*}
-				\end{multicols}
-				
-				Then we have
-				\begin{align*}
-					\int\limits_{0}^{\pi}{\sin^2{\dfrac{\theta}{2}}\cos{\dfrac{\theta}{2}}\dd{\theta}}&=\int\limits_{0}^{1}{\qty(x^2)\qty(2\dd{x})} \\
-						&=2\int\limits_{0}^{1}{x^2\dd{x}}=2\left.\dfrac{x^3}{3}\right|_{0}^{1}=\dfrac{2}{3}
-				\end{align*}
-				
-				Hence, from equation (\ref{eqn:rel-vel-03}), we get
-				\begin{align*}
-					\expval{v_r}&=2\expval{v}\times\dfrac{2}{3} \\
-					\implies\expval{v_r}&=\dfrac{4}{3}\expval{v}
-				\end{align*}
-				
-				Then the collision frequency gets modified from that in the zeroth order approximation as
-				\begin{align}
-					P_c&=n\sigma\expval{v_r} \nonumber\\
-					\implies P_c&=\dfrac{4}{3}N\sigma\expval{v} \label{eqn:coll-freq}
-				\end{align}
-				Equation (\ref{eqn:coll-freq}) shows that when we take into account the motion of the other molecules, the collision frequency increases.
-				
-				This also gives us the modified mean free path (or \emph{Clausius mean free path}) to be
-				\begin{align}
-					\lambda_\text{Cl}&=\dfrac{\expval{v}}{P_c} \nonumber\\
-						&=\dfrac{\cancel{\expval{v}}}{\sfrac{4}{3}N\sigma\cancel{\expval{v}}} \nonumber\\
-						&=\dfrac{3}{4N\sigma} \nonumber\\
-					\implies\lambda_\text{Cl}&=\dfrac{0.75}{n\sigma} \label{eqn:mfp-clausius}
-				\end{align}
-				As expected, equation (\ref{eqn:mfp-clausius}) shows that when the motion of the other molecules are taken into account, the mean free path decreases.
-			\end{enumerate}
+			\end{multicols}
+			
+			Then we have
+			\begin{align*}
+				\int\limits_{0}^{\pi}{\sin^2{\dfrac{\theta}{2}}\cos{\dfrac{\theta}{2}}\dd{\theta}}&=\int\limits_{0}^{1}{\qty(x^2)\qty(2\dd{x})} \\
+					&=2\int\limits_{0}^{1}{x^2\dd{x}}=2\left.\dfrac{x^3}{3}\right|_{0}^{1}=\dfrac{2}{3}
+			\end{align*}
+			
+			Hence, from equation (\ref{eqn:rel-vel-03}), we get
+			\begin{align*}
+				\expval{v_r}&=2\expval{v}\times\dfrac{2}{3} \\
+				\implies\expval{v_r}&=\dfrac{4}{3}\expval{v}
+			\end{align*}
+			
+			Then the collision frequency gets modified from that in the zeroth order approximation as
+			\begin{align}
+				P_c&=n\sigma\expval{v_r} \nonumber\\
+				\implies P_c&=\dfrac{4}{3}n\sigma\expval{v} \label{eqn:coll-freq}
+			\end{align}
+			Equation (\ref{eqn:coll-freq}) shows that when we take into account the motion of the other molecules, the collision frequency increases.
+			
+			This also gives us the modified mean free path (or \emph{Clausius mean free path}) to be
+			\begin{align}
+				\lambda_\text{Cl}&=\dfrac{\expval{v}}{P_c} \nonumber\\
+					&=\dfrac{\cancel{\expval{v}}}{\sfrac{4}{3}n\sigma\cancel{\expval{v}}} \nonumber\\
+				\implies\Aboxed{\lambda_\text{Cl}&=\dfrac{3}{4n\sigma}=\dfrac{0.75}{n\sigma}} \label{eqn:mfp-clausius}
+			\end{align}
+			As expected, equation (\ref{eqn:mfp-clausius}) shows that when the motion of the other molecules are taken into account, the mean free path decreases.
+			
+			However, if we consider the Maxwellian distribution of velocities while computing $\expval{v_r}$, then we obtain the \emph{Maxwell mean free path} as
+			\begin{align}
+				\Aboxed{\lambda_M&=\dfrac{1}{\sqrt{2}n\sigma}=\dfrac{0.707}{n\sigma}} \label{eqn:mfp-maxwell}
+			\end{align}
+			
+	\subsection*{Exercises}
+		\begin{enumerate}
+			\item A hydrogen molecule of radius $\num{1.37e-10}\;\unit{\metre}$ moves with speed $1840\;\unit{\metre\per\second}$. Calculate its\vspace{-1.5ex}
+			\begin{enumerate}[(a)]
+				\item Microscopic collision cross section
+				\item Collision frequency
+				\item Maxwell mean free path
+			\end{enumerate}\vspace{-1.5ex}
+			Take $n=\num{3e25}\;\unit{\per\metre\cubed}$.
+			
+			\item A gas is assumed to obey Maxwell's law for distribution of velocities. If the mean free path is $\num{2.85e-7}\;\unit{\metre}$, calculate the\vspace{-1.5ex}
+			\begin{enumerate}
+				\item Molecular diameter
+				\item Number of collisions per unit distance
+			\end{enumerate}\vspace{-1.5ex}
+			Take $n=\num{3e25}\;\unit{\per\metre\cubed}$.
+			
+			\item Helium gas is assumed to obey Maxwell's distribution of velocities. The molecular diameter of atoms of helium is $\num{e-10}\;\unit{\metre}$. One mole of the gas occupies 20 litre at $20\;\unit{\kelvin}$. Calculate the mean free path of the molecules, and the collision frequency. Given that $R=8.4\;\unit{\joule\per\mole\per\kelvin}$ and $N_A=\num{6.023e23}\;\unit{\per\mole}$.
+		\end{enumerate}
