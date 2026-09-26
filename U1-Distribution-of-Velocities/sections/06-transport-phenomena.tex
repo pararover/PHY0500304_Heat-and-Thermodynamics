@@ -24,6 +24,7 @@
 	\end{enumerate}
 	
 	\subsection{Viscosity: Transport of momentum}
+		\setcounter{equation}{0}
 		The property of a fluid by virtue of which it opposes the relative motion between adjacent layers is known as \emph{viscosity}. The \emph{coefficient of viscosity} $\eta$ is defined as the tangential force per unit area when a unit velocity gradient exists in a direction perpendicular to the direction of motion.
 		\begin{figure}[h!]
 			\centering
@@ -31,8 +32,46 @@
 		\end{figure}
 		
 		Consider two layers of the fluid which are separated by a distance $\dd{y}$, and moving with speeds $v$ and $v+\dd{v}$. Then the velocity gradient between these layers is $\dv{v}{y}$. If $F$ is the viscous force acting on an arbitrary area $A$, then we have
+		\begin{align}
+			F=-\eta A\dv{v}{y} \label{eqn:viscous-force}
+		\end{align}
+		
+		Suppose a fluid has a velocity gradient of $\dv{v}{y}$ across its layers along the $y$-axis.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.5\textwidth]{figures/fig_viscosity-02}
+		\end{figure}
+		
+		Then, if a molecule lying on the plane $xx'$ has a speed $u$, then a molecule at a height $\delta$ above the $xx'$ plane would have a speed of $u+\delta\dv{v}{y}$. Likewise, a molecule at a depth $\delta$ below $xx'$ would have a speed of $u-\delta\dv{v}{y}$.
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.5\textwidth]{figures/fig_viscosity-03}
+		\end{figure}
+		Consider an infinitessimal volume $\dd{V}$ at a distance $r$ from an infinitessimal area $\dd{A}$ which lies on the $xx'$ plane as shown above.
+		
+		If $P_c$ is the collision frequency of the gas, then the average number of collisions per molecule in time $\dd{t}$ is $P_c\dd{t}$.
+		
+		For $n$ being the number density of the gas, the number of molecules contained within the volume $\dd{V}$ is $n\dd{V}$.
+		
+		Hence we have
 		\begin{align*}
-			F=-\eta A\dv{v}{y}
+			\qty{\begin{matrix}\text{Total count of}\\ \text{collisions occurring}\\ \text{within $\dd{V}$ in time $\dd{t}$}\end{matrix}}&=\qty{\begin{matrix}\text{Collisions per}\\ \text{molecule}\\ \text{in time $\dd{t}$}\end{matrix}}\times\qty{\begin{matrix}\text{Number of molecules}\\ \text{contained within $\dd{V}$}\end{matrix}} \\
+				&=\qty(P_c\dd{t})\times\qty(n\dd{V})=P_cn\dd{V}\dd{t}
+		\end{align*}
+		
+		Because each collision involves two molecules, the total number of collisions taking place within $\dd{V}$ in time $\dd{t}$ is $\dfrac{1}{2}P_cn\dd{V}\dd{t}$.
+		
+		Now, each collision produces two free paths. Hence the number of free paths generated within the volume $\dd{V}$ in time $\dd{t}$ is $2\times\dfrac{1}{2}P_cn\dd{V}\dd{t}=P_cn\dd{V}\dd{t}$.
+		
+		The number of free paths, i.e. molecules, that are heading towards the area $\dd{A}$ from the volume $\dd{V}$ in time $\dd{t}$ is simply the number of free paths confined within the solid angle subtended by $\dd{A}$ at $\dd{V}$:
+		\begin{align*}
+			\Delta n&=\dfrac{\dd{\Omega}}{4\pi}P_cn\dd{V}\dd{t}
+		\end{align*}
+		
+		Hence, the number of molecules that will reach $\dd{A}$ from $\dd{V}$ is given by the survival equation to be
+		\begin{align*}
+			\Delta N&=\Delta n\exp\qty(-\dfrac{r}{\lambda})
 		\end{align*}
 	
 	\subsection{Thermal conductivity: Transport of energy}
