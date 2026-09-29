@@ -66,12 +66,39 @@
 		
 		The number of free paths, i.e. molecules, that are heading towards the area $\dd{A}$ from the volume $\dd{V}$ in time $\dd{t}$ is simply the number of free paths confined within the solid angle subtended by $\dd{A}$ at $\dd{V}$:
 		\begin{align*}
-			\Delta n&=\dfrac{\dd{\Omega}}{4\pi}P_cn\dd{V}\dd{t}
+			\dd{n}&=\dfrac{\dd{\Omega}}{4\pi}P_cn\dd{V}\dd{t}
+		\end{align*}
+		Also, the solid angle subtended by the area $\dd{A}$ at the volume $\dd{V}$ is given by
+		\begin{align*}
+			\dd{\Omega}&=\dfrac{\dd{A}\cos{\theta}}{r^2}
+		\end{align*}
+		where $\theta$ is the angle between $r$ and the $y$ axis. So, this gives us
+		\begin{align*}
+			\dd{n}&=P_cn\dfrac{\dd{A}\cos{\theta}}{4\pi r^2}\dd{V}\dd{t}
 		\end{align*}
 		
 		Hence, the number of molecules that will reach $\dd{A}$ from $\dd{V}$ is given by the survival equation to be
 		\begin{align*}
-			\Delta N&=\Delta n\exp\qty(-\dfrac{r}{\lambda})
+			\dd{N}&=\dd{n}\exp\qty(-\dfrac{r}{\lambda}) \\
+				&=\qty(P_cn\dfrac{\dd{A}\cos{\theta}}{4\pi r^2}\dd{V}\dd{t})\exp\qty(-\dfrac{r}{\lambda}) \\
+			\implies\dd{N}&=\dfrac{P_cn\cos{\theta}}{4\pi r^2}\dd{A}\dd{V}\dd{t}\exp\qty(-\dfrac{r}{\lambda})
+		\end{align*}
+		In spherical polar coordinates, the volume element becomes
+		\begin{align*}
+			\dd{V}=2\pi r^2\sin{\theta}\dd{\theta}\dd{r}
+		\end{align*}
+		Hence, we have
+		\begin{align*}
+			\dd{N}&=\dfrac{P_cn\cos{\theta}}{\cancelto{2}{4\pi r^2}}\dd{A}\qty(\cancel{2\pi r^2}\sin{\theta}\dd{\theta}\dd{r})\dd{t}\exp\qty(-\dfrac{r}{\lambda}) \\
+				&=\dfrac{1}{2}P_cn \dd{A}\dd{t} \sin{\theta}\cos{\theta} \exp\qty(-\dfrac{r}{\lambda}) \dd{\theta}\dd{r}
+		\end{align*}
+		
+		To calculate the total number of molecules crossing $\dd{A}$ in time $\dd{t}$ from the upper half-space above $xx'$, we integrate the above expression over $r$ (from $0$ to $\infty$) and over $\theta$ (from $0$ to $\pi/2$) as follows
+		\begin{align*}
+			N&=\dfrac{1}{2}P_cn \dd{A}\dd{t} \underbrace{\int_{0}^{\infty}{\exp\qty(-\dfrac{r}{\lambda})\dd{r}}}_{=\lambda} \underbrace{\int_{0}^{\pi/2}{\sin{\theta}\cos{\theta}\dd{\theta}}}_{=1/2} \\
+			\implies N&=\dfrac{\lambda}{4}P_cn\dd{A}\dd{t} \\
+				&=\dfrac{\cancel{\lambda}}{4} \dfrac{\expval{v}}{\cancel{\lambda}} n\dd{A}\dd{t} \\
+			\implies\dfrac{N}{\dd{A}\dd{t}}&=\dfrac{1}{4}n\expval{v}
 		\end{align*}
 	
 	\subsection{Thermal conductivity: Transport of energy}
