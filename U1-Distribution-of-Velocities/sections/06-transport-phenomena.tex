@@ -214,12 +214,12 @@
 			\includegraphics*[width=0.5\textwidth]{figures/fig_conductivity-01}
 		\end{figure}
 		
-		There is a temperature gradient across the different layers of the gas, which we denote as $\dv{T}{y}$. Because heat always from higher to lower temperature, the thermal energy flowing per unit area per unit time is opposite to the temperature gradient, i.e.
+		There is a temperature gradient across the different layers of the gas, which we denote as $\dv{T}{y}$. Because heat always transports from higher to lower temperature, the thermal energy flowing per unit area per unit time is opposite to the temperature gradient, i.e.
 		\begin{align}
 			Q&\propto-\dv{T}{y} \nonumber\\
 			\implies Q&=-\kappa\dv{T}{y} \label{eqn:heat-flow}
 		\end{align}
-		where $\kappa$ is the thermal conductivity of the fluid.
+		where $\kappa$ is the \emph{thermal conductivity} of the fluid.
 		
 		\begin{figure}[h!]
 			\centering
@@ -310,7 +310,85 @@
 				\implies\Aboxed{\dfrac{\kappa M}{\eta C_V}&=1}\qq{[for all gases]}
 			\end{align*}
 	
-	%\subsection{Diffusion: Transport of matter}
+	\setcounter{equation}{0}
+	\subsection{Diffusion: Transport of matter}
+		The transport of matter is also treated in a similar manner as viscosity.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics*[width=0.5\textwidth]{figures/fig_diffusion-01}
+		\end{figure}
+		
+		There is a concentration gradient across the different layers of the gas, which we denote as $\dv{n}{y}$. Because matter always transports from higher to lower concentration, the matter flow rate (i.e. number of molecules crossing a reference plane per unit area per unit time) is opposite to the concentration gradient, i.e.
+		\begin{align}
+			\Gamma&\propto-\dv{n}{y} \nonumber\\
+			\implies \Gamma&=-D\dv{n}{y} \label{eqn:matter-flow}
+		\end{align}
+		where $D$ is the \emph{coefficient of diffusion} of the fluid.
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics*[width=0.5\textwidth]{figures/fig_diffusion-h.png}
+		\end{figure}
+		
+		Suppose the concentration at a layer $xx'$ is $n_0$. At a height $h$ above this layer, the concentration would be
+		\begin{align*}
+			n_+&=n_0+h\dv{n}{y}
+		\end{align*}
+		and at a depth $h$ below this layer, the concentration would be
+		\begin{align*}
+			n_-&=n_0-h\dv{n}{y}
+		\end{align*}
+		
+		We know that the number of gas molecules reaching the $xx'$ plane per unit area per unit time is
+		\begin{align*}
+			\dfrac{N}{\dd{A}\dd{t}}&=\dfrac{1}{4}n\expval{v}
+		\end{align*}
+		
+		Hence, the number of particles crossing $xx'$ per unit area per unit time from above is
+		\begin{align*}
+			\Gamma_+&=\dfrac{1}{4}\expval{v}\qty(n_0-n_+) \\
+				&=\dfrac{1}{4}\expval{v}\qty(n_0-n_0-h\dv{n}{y}) \\
+			\implies\Gamma_+&=-\dfrac{1}{4}\expval{v}h\dv{n}{y}
+		\end{align*}
+		Likewise, the number of particles crossing $xx'$ per unit area per unit time from below is
+		\begin{align*}
+			\Gamma_-&=\dfrac{1}{4}\expval{v}h\dv{n}{y}
+		\end{align*}
+		
+		Hence, the net particles transported per unit area per unit time is
+		\begin{align}
+			\Gamma&=\Gamma_+-\Gamma_- \nonumber\\
+				&=\qty(-\dfrac{1}{4}\expval{v}h\dv{n}{y})-\qty(\dfrac{1}{4}\expval{v}h\dv{n}{y}) \nonumber\\
+			\implies\Gamma&=-\dfrac{1}{2}\expval{v}h\dv{n}{y} \label{eqn:matter-flow-02}
+		\end{align}
+		
+		Choosing the first order approximation for $h$, i.e. $h=\dfrac{2}{3}\lambda$, equation (\ref{eqn:matter-flow-02}) becomes
+		\begin{align}
+			\Gamma&=-\dfrac{1}{2}\expval{v}\qty(\dfrac{2}{3}\lambda)\dv{n}{y} \nonumber\\
+			\implies\Gamma&=-\dfrac{1}{3}\expval{v}\lambda\dv{n}{y} \label{eqn:matter-flow-03}
+		\end{align}
+		
+		Comparing equations (\ref{eqn:matter-flow}) and (\ref{eqn:matter-flow-03}), we finally obtain the coefficient of diffusion to be
+		\begin{align*}
+			\Aboxed{D&=\dfrac{1}{3}\expval{v}\lambda}
+		\end{align*}
+		
+		\subsubsection{Relation between diffusion and viscosity}
+		We have obtained
+		\begin{align*}
+			D&=\dfrac{1}{3}\expval{v}\lambda \\
+			\eta&=\dfrac{1}{3}mn\expval{v}\lambda
+		\end{align*}
+		
+		Hence, we have
+		\begin{align*}
+			\dfrac{D}{\eta}&=\dfrac{\frac{1}{3}\expval{v}\lambda}{\frac{1}{3}mn\expval{v}\lambda}=\dfrac{1}{mn}
+		\end{align*}
+		Now the mass density of a gas is $\rho=mn$. Then the above equation becomes
+		\begin{align*}
+			\dfrac{D}{\eta}&=\dfrac{1}{\rho} \\
+			\implies\Aboxed{\dfrac{D\rho}{\eta}&=1} \qq{[for all gases]}
+		\end{align*}
 	
 	\subsection*{Exercises}
 		\begin{enumerate}
