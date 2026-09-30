@@ -244,7 +244,71 @@
 			\Delta\varepsilon_+&=-\dfrac{f}{2}k_Bh\dv{T}{y}
 		\end{align*}
 		
-		As discussed earlier, the number of gas molecules reaching the $xx'$ plane per unit area per unit time is 
+		As discussed earlier, the number of gas molecules reaching the $xx'$ plane per unit area per unit time is
+		\begin{align*}
+			\dfrac{N}{\dd{A}\dd{t}}&=\dfrac{1}{4}n\expval{v}
+		\end{align*}
+		
+		Hence the total thermal energy transported from above per unit area per unit time is
+		\begin{align*}
+			Q_+&=\qty(\dfrac{1}{4}n\expval{v})\times\qty(-\dfrac{f}{2}k_Bh\dv{T}{y}) \\
+			\implies Q_+&=-\dfrac{f}{8}n\expval{v}k_Bh\dv{T}{y}
+		\end{align*}
+		
+		Likewise, we obtain the thermal energy transported from below per unit area per unit time to be
+		\begin{align*}
+			Q_-&=\dfrac{f}{8}n\expval{v}k_Bh\dv{T}{y}
+		\end{align*}
+		
+		Hence, the net transport rate for thermal energy is
+		\begin{align}
+			Q&=Q_+-Q_- \nonumber\\
+				&=\qty(-\dfrac{f}{8}n\expval{v}k_Bh\dv{T}{y})-\qty(\dfrac{f}{8}n\expval{v}k_Bh\dv{T}{y}) \nonumber\\
+			\implies Q&=-\dfrac{f}{4}n\expval{v}k_Bh\dv{T}{y} \label{eqn:thermal-energy-rate}
+		\end{align}
+		
+		Choosing the first order approximation for $h$, i.e. $h=\dfrac{2}{3}\lambda$, equation (\ref{eqn:thermal-energy-rate}) becomes
+		\begin{align}
+			Q&=-\dfrac{f}{\cancelto{2}{4}}n\expval{v}k_B\qty(\dfrac{\cancel{2}}{3}\lambda)\dv{T}{y} \nonumber\\
+			\implies Q&=-\dfrac{f}{6}n\expval{v}k_B\lambda\dv{T}{y} \label{eqn:heat-flow-micro}
+		\end{align}
+		
+		Comparing equations (\ref{eqn:heat-flow}) and (\ref{eqn:heat-flow-micro}), we finally obtain
+		\begin{align*}
+			\kappa&=\dfrac{f}{6}n\expval{v}\lambda k_B
+		\end{align*}
+		
+		Now, we know that the molar specific heat capacity of a gas at constant volume is
+		\begin{align*}
+			C_V&=\dfrac{f}{2}k_B
+		\end{align*}
+		
+		Then we obtain the thermal conductivity to be
+		\begin{align*}
+			\Aboxed{\kappa&=\dfrac{1}{3}C_Vn\expval{v}\lambda}
+		\end{align*}
+		
+		\subsubsection{Relation between thermal conductivity and viscosity}
+			We have obtained
+			\begin{align*}
+				\kappa&=\dfrac{f}{6}n\expval{v}\lambda k_B \\
+				\eta&=\dfrac{1}{3}mn\expval{v}\lambda
+			\end{align*}
+			
+			Hence, we have
+			\begin{align*}
+				\dfrac{\kappa}{\eta}&=\dfrac{\frac{f}{6}n\expval{v}\lambda k_B}{\frac{1}{3}mn\expval{v}\lambda}=\dfrac{f}{2}\dfrac{k_B}{m}
+			\end{align*}
+			If the molar mass of a gas is $M$, then we can write the molecular mass as $m=\dfrac{M}{N_A}$. Then the above becomes
+			\begin{align*}
+				\dfrac{\kappa}{\eta}&=\dfrac{f}{2}\dfrac{k_BN_A}{M}
+			\end{align*}
+			Also, we know that the universal gas constant is $R=k_BN_A$. And so
+			\begin{align*}
+				\dfrac{\kappa}{\eta}&=\dfrac{f}{2}\dfrac{R}{M} \\
+				\implies\dfrac{\kappa}{\eta}&=\dfrac{C_V}{M} \qq{[$\because$ $C_V=\sfrac{f}{2}R$]} \\
+				\implies\Aboxed{\dfrac{\kappa M}{\eta C_V}&=1}\qq{[for all gases]}
+			\end{align*}
 	
 	%\subsection{Diffusion: Transport of matter}
 	
