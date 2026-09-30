@@ -206,7 +206,45 @@
 			\end{align*}
 			In the above equation, the quantities $m$, $\expval{v}$ and $\eta_M$ are measurable. Therefore, this allows us to use these measurements to estimate the \emph{molecular diameter}, which is a microscopic property.
 	
-	%\subsection{Thermal conductivity: Transport of energy}
+	\newpage\setcounter{equation}{0}
+	\subsection{Thermal conductivity: Transport of energy}
+		The transport of energy is treated in a similar manner as viscosity.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics*[width=0.5\textwidth]{figures/fig_conductivity-01}
+		\end{figure}
+		
+		There is a temperature gradient across the different layers of the gas, which we denote as $\dv{T}{y}$. Because heat always from higher to lower temperature, the thermal energy flowing per unit area per unit time is opposite to the temperature gradient, i.e.
+		\begin{align}
+			Q&\propto-\dv{T}{y} \nonumber\\
+			\implies Q&=-\kappa\dv{T}{y} \label{eqn:heat-flow}
+		\end{align}
+		where $\kappa$ is the thermal conductivity of the fluid.
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics*[width=0.5\textwidth]{figures/fig_conductivity-h-above.png}
+		\end{figure}
+		
+		Suppose the temperature at a layer $xx'$ is $T$. If $f$ denotes the degrees of freedom of a gas molecule then, from the law of equipartition of energy, the average thermal energy of a gas molecule on this layer is
+		\begin{align*}
+			\varepsilon&=\dfrac{f}{2}k_BT
+		\end{align*}
+		
+		Hence, at a height $h$ above this layer, the temperature would be $T+h\dv{T}{y}$. Then the average thermal energy of a gas molecule at this height is
+		\begin{align*}
+			\varepsilon_+&=\dfrac{f}{2}k_B\qty(T+h\dv{T}{y})
+		\end{align*}
+		
+		Then the thermal energy transported from above by a single molecule is
+		\begin{align*}
+			\Delta\varepsilon_+&=\varepsilon-\varepsilon_+ \\
+				&=\qty[\dfrac{f}{2}k_BT]-\qty[\dfrac{f}{2}k_B\qty(T+h\dv{T}{y})] \\
+				&=\cancel{\dfrac{f}{2}k_BT}-\cancel{\dfrac{f}{2}k_BT}-\dfrac{f}{2}k_Bh\dv{T}{y} \\
+			\Delta\varepsilon_+&=-\dfrac{f}{2}k_Bh\dv{T}{y}
+		\end{align*}
+		
+		As discussed earlier, the number of gas molecules reaching the $xx'$ plane per unit area per unit time is 
 	
 	%\subsection{Diffusion: Transport of matter}
 	
